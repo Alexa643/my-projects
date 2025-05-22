@@ -36,11 +36,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       <nav className="navbar">
         <Link to="/" className="logo" onClick={closeMenu}>
           <img
-            src="/images/logo192.png"
-            alt="Curățenie Morhan Logo"
+            src="/assets/Images/logo-alb-negru.png"
+            alt="Curățenie Morhan"
             className="logo-img"
           />
-          <span className="logo-text">Curățenie Morhan</span>
         </Link>
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
@@ -91,7 +90,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             onClick={toggleMenu}
             aria-label="Toggle Menu"
           >
-            {menuOpen ? <FaTimes /> : <FaBars />}
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
       </nav>
