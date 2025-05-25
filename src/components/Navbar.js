@@ -34,13 +34,15 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       }`}
     >
       <nav className="navbar">
-        <Link to="/" className="logo" onClick={closeMenu}>
-          <img
-            src="/assets/Images/logo-alb-negru.png"
-            alt="Curățenie Morhan"
-            className="logo-img"
-          />
-        </Link>
+        <div className="navbar-logo" onClick={closeMenu}>
+    <Link to="/">
+      <img
+        src="/assets/Images/logo01.png"
+        alt="Curățenie Morhan"
+        className="logo-img"
+      />
+    </Link>
+  </div>
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li>
