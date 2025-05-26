@@ -52,7 +52,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <div className="navbar-logo-wrapper" onClick={closeMenu}>
           <Link to="/" className="logo">
             <img
-              src="/assets/Images/logo01.png" // Asigură-te că această cale este corectă
+              src="/assets/Images/logo.png" // Asigură-te că această cale este corectă
               alt="Curățenie Morhan Logo"
               className="logo-img"
             />
