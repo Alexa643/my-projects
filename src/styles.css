@@ -1,18 +1,37 @@
 /* ---------------- BASE STYLES ---------------- */
+/* --- Global CSS Variables --- */
 :root {
   --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
-  --text-light: #111827;
-  --text-dark: #e5e7eb;
+  --primary-color-dark: #4338ca;
+  --text-general-light: #111827;
+  --text-general-dark: #e5e7eb;
   --bg-light: #f9f9f9;
   --bg-dark: #121212;
   --card-bg-light: #ffffff;
   --card-bg-dark: #1e1e1e;
   --nav-bg-light: #ffffff;
   --nav-bg-dark: #000000;
+  --nav-text-light: #374151;
+  --nav-text-dark: #e5e7eb;
+  --nav-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --nav-shadow-dark: 0 4px 15px rgba(255, 255, 255, 0.08);
+  --nav-border-light: #e5e7eb;
+  --nav-border-dark: #374151;
+  --navbar-height: 70px;
   --transition: all 0.3s ease;
+
+  /* Dark Mode Toggle Colors */
+  --toggle-track-light: #e0e0e0;
+  --toggle-knob-color: #ffffff;
+  --toggle-sun-icon-color: #f59e0b;
+  --toggle-moon-icon-color: #f9f9f9;
+
+  /* Specific icon colors for the modified toggle */
+  --sun-light: #000000;
+  --moon-dark: #ffffff;
 }
 
+/* --- Base Styles --- */
 html,
 body {
   overflow-x: hidden;
@@ -30,7 +49,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   background-color: var(--bg-light);
-  color: var(--text-light);
+  color: var(--text-general-light);
   transition: var(--transition);
 }
 
@@ -51,20 +70,18 @@ main {
   margin: 0 auto;
 }
 
-/* ---------------- DARK MODE ---------------- */
+/* ---------------- DARK MODE GLOBAL STYLES ---------------- */
 .dark {
   background-color: var(--bg-dark);
-  color: var(--text-dark);
+  color: var(--text-general-dark);
 }
 
 .dark body {
   background-color: var(--bg-dark);
+  color: var(--text-general-dark);
 }
 
-.dark .title-rating {
-  color: var(--text-dark);
-}
-
+/* Ensure all text elements inherit dark mode colors */
 .dark p,
 .dark h1,
 .dark h2,
@@ -75,10 +92,52 @@ main {
 .dark a,
 .dark li,
 .dark span {
-  color: var(--text-dark);
+  color: var(--text-general-dark);
 }
 
-/* ---------------- TOGGLE SWITCH ---------------- */
+.dark .title-rating {
+  /* Example, keep if relevant to your app */
+  color: var(--text-general-dark);
+}
+
+/* Login Modal Dark Mode Styles (moved from NavBar for better organization) */
+.dark .login-modal {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.dark .login-modal .close-button {
+  color: var(--text-general-dark);
+}
+
+.dark .login-modal .close-button:hover {
+  color: var(--primary-color);
+}
+
+.dark .login-modal h2 {
+  color: var(--primary-color);
+}
+
+.dark .login-modal .modal-option-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.dark .login-modal .modal-option-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Modal Overlay (not dark mode specific, but often paired with modal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1199;
+}
+/* ---------------- TOGGLE SWITCH ----------------
 .dark-toggle {
   width: 60px;
   height: 30px;
@@ -142,146 +201,7 @@ main {
 
 .dark-toggle.active .icon-moon {
   display: inline;
-}
-
-/* ------------------- NAVBAR ------------------- */
-.navbar-container {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: var(--nav-bg-light);
-  transition: var(--transition);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.dark .navbar-container {
-  background-color: var(--nav-bg-dark);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  font-weight: 500;
-  padding: 0.5rem 0;
-  transition: var(--transition);
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-  transition: var(--transition);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.dark .nav-links a {
-  color: var(--text-dark);
-}
-
-/* Logo styles in navbar */
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  height: 48px;
-}
-
-.navbar-logo img {
-  height: 100%;
-  max-height: 48px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* ------------------- HAMBURGER MENU ------------------- */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--text-light);
-  transition: var(--transition);
-  z-index: 1100;
-  padding: 0.5rem;
-}
-
-.dark .hamburger {
-  color: var(--text-dark);
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--nav-bg-light);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    transition: top 0.4s ease-in-out;
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0;
-  }
-
-  .dark .nav-links {
-    background-color: var(--nav-bg-dark);
-  }
-
-  .nav-links.open {
-    top: 0;
-    pointer-events: auto;
-    opacity: 1;
-  }
-
-  .nav-links li {
-    text-align: center;
-  }
-
-  .nav-links a {
-    font-size: 1.5rem;
-  }
-}
+} */
 
 /* ------------------- FOOTER ------------------- */
 .footer {
@@ -867,10 +787,10 @@ main {
     font-size: 1.8rem;
   }
 
-    .navbar-logo img {
+  .navbar-logo img {
     max-height: 36px;
   }
-  
+
   .feature-card {
     padding: 1.25rem;
   }
@@ -886,8 +806,8 @@ main {
   }
 
   .logo-img {
-        width: 42px;
-        height: auto;
+    width: 42px;
+    height: auto;
   }
 
   .dark-toggle {

@@ -1,162 +1,186 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom"; // Importăm useLocation
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   FaMoon,
   FaSun,
   FaBars,
   FaTimes,
-  FaHome,
-  FaInfoCircle,
-  FaTools,
-  FaStar,
-  FaEnvelope,
-  FaPhoneAlt, // Adăugăm iconița de telefon
+  FaSignInAlt,
+  FaUserPlus,
 } from "react-icons/fa";
-import "./NavBarStyle.css"; // Asigură-te că calea este corectă
+import "./NavBarStyle.css"; // Ensure this path is correct relative to Navbar.jsx
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation(); // Hook pentru a obține calea curentă
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  // Efect pentru scroll și pentru blocarea scroll-ului corpului când meniul e deschis
+  const openLoginModal = () => setIsLoginModalOpen(true);
+  const closeLoginModal = () => setIsLoginModalOpen(false);
+
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    // This effect handles preventing body scroll when menu or modal is open
+    document.body.style.overflow =
+      menuOpen || isLoginModalOpen ? "hidden" : "auto";
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // Devine "scrolled" după 50px de scroll
+      // Sets 'scrolled' state based on scroll position for sticky header effect
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [menuOpen]);
+  }, [menuOpen, isLoginModalOpen]); // Dependencies for useEffect
 
-  // Funcție pentru a determina dacă un link este activ
+  // Determines if a link is active based on the current path
   const isActiveLink = (path) => {
     return location.pathname === path;
   };
 
   return (
-    <header
-      className={`navbar-container ${darkMode ? "dark" : ""} ${
-        scrolled ? "scrolled" : ""
-      }`}
-    >
-      <nav className="navbar">
-        {/* Logo-ul firmei */}
-        <div className="navbar-logo-wrapper" onClick={closeMenu}>
-          <Link to="/" className="logo">
-            <img
-              src="/assets/Images/logo.png" // Asigură-te că această cale este corectă
-              alt="Curățenie Morhan Logo"
-              className="logo-img"
-            />
-            {/* Poți adăuga un text sau slogan lângă logo dacă dorești */}
-            {/* <span className="logo-text">Curățenie Morhan</span> */}
-          </Link>
-        </div>
-
-        {/* Link-urile de navigare principale */}
-        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <li>
-            <Link
-              to="/"
-              onClick={closeMenu}
-              className={isActiveLink("/") ? "active-link" : ""}
-              aria-current={isActiveLink("/") ? "page" : undefined}
-            >
-              <FaHome className="nav-icon" />
-              <span>Acasă</span>
+    <>
+      <header
+        className={`navbar-container ${darkMode ? "dark" : ""} ${
+          scrolled ? "scrolled" : ""
+        }`}
+      >
+        <nav className="navbar">
+          {/* Logo */}
+          <div className="navbar-logo-wrapper" onClick={closeMenu}>
+            <Link to="/" className="logo">
+              <img
+                src="/assets/Images/logo.png" // Ensure this path is correct from your public folder
+                alt="Company Logo"
+                className="logo-img"
+              />
             </Link>
-          </li>
-          <li>
-            <Link
-              to="/despre"
-              onClick={closeMenu}
-              className={isActiveLink("/despre") ? "active-link" : ""}
-              aria-current={isActiveLink("/despre") ? "page" : undefined}
-            >
-              <FaInfoCircle className="nav-icon" />
-              <span>Despre Noi</span> {/* Am modificat textul pentru claritate */}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/servicii"
-              onClick={closeMenu}
-              className={isActiveLink("/servicii") ? "active-link" : ""}
-              aria-current={isActiveLink("/servicii") ? "page" : undefined}
-            >
-              <FaTools className="nav-icon" />
-              <span>Servicii</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/recenzii"
-              onClick={closeMenu}
-              className={isActiveLink("/recenzii") ? "active-link" : ""}
-              aria-current={isActiveLink("/recenzii") ? "page" : undefined}
-            >
-              <FaStar className="nav-icon" />
-              <span>Recenzii</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              onClick={closeMenu}
-              className={isActiveLink("/contact") ? "active-link" : ""}
-              aria-current={isActiveLink("/contact") ? "page" : undefined}
-            >
-              <FaEnvelope className="nav-icon" />
-              <span>Contact</span>
-            </Link>
-          </li>
-          {/* Adaugă numărul de telefon în meniul mobil */}
-          {menuOpen && (
-            <li className="mobile-phone-link">
-              <a href="tel:+40745265769" onClick={closeMenu}>
-                <FaPhoneAlt className="nav-icon" />
-                <span>+4 0745 26 57 69</span>
-              </a>
-            </li>
-          )}
-        </ul>
-
-        {/* Elementele din dreapta (Dark mode toggle, Hamburger) */}
-        <div className="nav-right">
-          <div className="phone-display-desktop">
-            <a href="tel:+40745265769" className="phone-number-link">
-              <FaPhoneAlt className="phone-icon" />
-              <span className="phone-text">+4 0745 26 57 69</span>
-            </a>
           </div>
 
-          <button
-            className={`dark-toggle ${darkMode ? "active" : ""}`}
-            onClick={() => setDarkMode(!darkMode)}
-            aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
-          >
-            <FaSun className="icon-sun" />
-            <FaMoon className="icon-moon" />
-          </button>
+          {/* Navigation Links */}
+          <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+            <li>
+              <Link
+                to="/despre"
+                onClick={closeMenu}
+                className={isActiveLink("/despre") ? "active-link" : ""}
+                aria-current={isActiveLink("/despre") ? "page" : undefined}
+              >
+                Despre Noi
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/servicii"
+                onClick={closeMenu}
+                className={isActiveLink("/servicii") ? "active-link" : ""}
+                aria-current={isActiveLink("/servicii") ? "page" : undefined}
+              >
+                Servicii
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/recenzii"
+                onClick={closeMenu}
+                className={isActiveLink("/recenzii") ? "active-link" : ""}
+                aria-current={isActiveLink("/recenzii") ? "page" : undefined}
+              >
+                Recenzii
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                onClick={closeMenu}
+                className={isActiveLink("/contact") ? "active-link" : ""}
+                aria-current={isActiveLink("/contact") ? "page" : undefined}
+              >
+                Contact
+              </Link>
+            </li>
 
-          <button
-            className="hamburger"
-            onClick={toggleMenu}
-            aria-label={menuOpen ? "Close Menu" : "Open Menu"}
-          >
-            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
-        </div>
-      </nav>
-    </header>
+            {/* Mobile Login Button - Only visible when menu is open on mobile */}
+            {menuOpen && (
+              <li className="mobile-login-trigger">
+                <button
+                  onClick={() => {
+                    closeMenu();
+                    openLoginModal();
+                  }}
+                  className="login-button-mobile"
+                >
+                  <FaSignInAlt /> Login
+                </button>
+              </li>
+            )}
+          </ul>
+
+          {/* Right-side Elements */}
+          <div className="nav-right">
+            {/* Desktop Login Button */}
+            <button className="login-button-desktop" onClick={openLoginModal}>
+              Login
+            </button>
+
+            {/* Dark Mode Toggle */}
+            <button
+              className={`dark-toggle ${darkMode ? "active" : ""}`}
+              onClick={() => setDarkMode(!darkMode)}
+              aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
+            >
+              <FaSun className="icon-sun" />
+              <FaMoon className="icon-moon" />
+            </button>
+
+            {/* Hamburger Menu (for mobile) */}
+            <button
+              className="hamburger"
+              onClick={toggleMenu}
+              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+            >
+              {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Login Modal */}
+      {isLoginModalOpen && (
+        <>
+          <div className="modal-overlay" onClick={closeLoginModal}></div>
+          <div className="login-modal">
+            <button className="close-button" onClick={closeLoginModal}>
+              <FaTimes size={24} />
+            </button>
+            <h2>Autentificare</h2>
+            <div className="modal-options">
+              <Link
+                to="/login"
+                onClick={closeLoginModal}
+                className="modal-option-btn"
+              >
+                <FaSignInAlt className="modal-icon" />
+                <span>Login</span>
+              </Link>
+              <Link
+                to="/register"
+                onClick={closeLoginModal}
+                className="modal-option-btn"
+              >
+                <FaUserPlus className="modal-icon" />
+                <span>Register</span>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
