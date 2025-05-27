@@ -1,679 +1,555 @@
-/* --- CSS Variables for Theming --- */
-:root {
-  /* Light Mode Colors */
-  --morhan-primary-blue: #007bff;
-  --morhan-dark-blue: #003366;
-  --morhan-text-dark: #333333;
-  --morhan-text-medium: #666666;
-  --morhan-bg-light: #f8f9fa;
-  --morhan-card-bg: #ffffff;
-  --morhan-border: #e9ecef;
-  --morhan-shadow: rgba(0, 0, 0, 0.1);
-  --morhan-hover-blue: #0056b3;
-  --morhan-satisfaction-bg: #28a745;
-  --morhan-satisfaction-text: #ffffff;
-  --transition: all 0.3s ease-in-out;
-}
+/* Home.css - Stiluri complete pentru pagina principală */
 
-/* Dark Mode Colors */
-.home-page.dark {
-  --morhan-primary-blue: #1a75ff;
-  --morhan-dark-blue: #00224d;
-  --morhan-text-dark: #e0e0e0;
-  --morhan-text-medium: #a0a0a0;
-  --morhan-bg-light: #1e1e1e;
-  --morhan-card-bg: #2a2a2a;
-  --morhan-border: #444444;
-  --morhan-shadow: rgba(0, 0, 0, 0.4);
-  --morhan-hover-blue: #0056b3;
-  --morhan-satisfaction-bg: #218838;
-}
-
+/* ===== VARIABILE ===== */
 .home-page {
-font-family: 'Poppins', sans-serif;
- color: var(--morhan-text-dark);
-background-color: var(--morhan-bg-light);
-transition: var(--transition);
-line-height: 1.6;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  /* Culori tema light */
+  --primary-color: #2a9d8f;
+  --secondary-color: #264653;
+  --accent-color: #e9c46a;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --text-color: #333333;
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --card-bg: #ffffff;
+  --section-padding: 5rem 0;
+  --border-radius: 12px;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
-.home-container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
+.home-page.dark-mode {
+  /* Culori tema dark */
+  --primary-color: #2a9d8f;
+  --secondary-color: #e9c46a;
+  --accent-color: #f4a261;
+  --light-color: #343a40;
+  --dark-color: #f8f9fa;
+  --text-color: #f8f9fa;
+  --text-light: #f8f9fa;
+  --text-dark: #f8f9fa;
+  --card-bg: #495057;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* --- Section Titles --- */
-.section-title-morhan {
-font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--morhan-text-dark);
+/* ===== STILURI DE BAZĂ ===== */
+.home-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-color);
+}
+
+.home-page h1, 
+.home-page h2, 
+.home-page h3, 
+.home-page h4 {
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.home-page p {
+  margin-bottom: 1.5rem;
+}
+
+.home-page a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.home-page a:hover {
+  color: var(--secondary-color);
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
   text-align: center;
   margin-bottom: 3rem;
-position: relative;
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  position: relative;
 }
 
-.section-title-morhan:after {
+.section-title::after {
   content: '';
   display: block;
   width: 80px;
   height: 4px;
-  background: var(--morhan-primary-blue);
-  margin: 1rem auto 0;
+  background: var(--primary-color);
+  margin: 0.5rem auto;
   border-radius: 2px;
 }
 
-/* --- Hero Section --- */
-.hero-morhan {
-position: relative;
-height: 600px; /* Adjusted from 600px to auto in media query, keeping this as default */
-overflow: hidden;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #ffffff;
-margin-bottom: 60px;
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.hero-morhan-overlay {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: linear-gradient(
-  to right,
-  rgba(0, 0, 0, 0.7) 0%,
-  rgba(0, 0, 0, 0.3) 100%
-);
-z-index: 2;
+.cta-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.hero-morhan-content {
-position: relative;
-z-index: 3;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
-width: 100%;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 2rem;
-align-items: center;
+/* ===== HERO SECTION ===== */
+.hero-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--text-light);
 }
 
-.hero-text-content {
-padding: 2rem;
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.satisfaction-badge {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: var(--accent-color);
+  color: var(--text-dark);
+  padding: 1rem;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  box-shadow: var(--box-shadow);
 }
 
-.hero-image-wrapper {
-position: relative;
-width: 100%;
-  height: 100%; /* Ensure it takes full height of its grid cell */
+.satisfaction-badge span {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-.hero-morhan-image {
-position: absolute; /* Changed to absolute to fit into wrapper */
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- object-fit: cover;
- z-index: 1;
- filter: brightness(0.7);
- transition: transform 10s ease-out; /* Keeps original transition */
-}
-
-.hero-morhan-title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.5px;
-}
-
-.hero-morhan-subtitle {
-font-size: 1.4rem;
- font-weight: 400;
-margin-bottom: 2.5rem;
-max-width: 700px;
-margin-left: auto; /* Center on smaller screens */
-margin-right: auto;
-}
-
-.hero-morhan-button {
-padding: 16px 40px;
-background-color: var(--morhan-primary-blue);
-color: white;
-border: none;
-border-radius: 5px;
- font-size: 1.2rem;
- font-weight: 600;
- cursor: pointer;
- transition: all 0.3s ease;
- box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
- position: relative;
- overflow: hidden;
- z-index: 1;
-}
-
-.hero-morhan-button:hover {
-background-color: var(--morhan-hover-blue);
-transform: translateY(-3px);
- box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-.satisfaction-badge-morhan {
-position: absolute; /* Adjusted for mobile responsiveness later */
- right: 2rem;
- bottom: 2rem;
- background-color: var(--morhan-satisfaction-bg);
- color: white;
- border-radius: 50%;
- width: 130px;
- height: 130px;
- display: flex;
- flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
- font-size: 1.1rem;
- font-weight: 600;
-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
- z-index: 4;
- animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
- 0% { transform: scale(1); }
- 50% { transform: scale(1.05); }
- 100% { transform: scale(1); }
-}
-
-.satisfaction-badge-morhan span {
-font-size: 2.8rem;
- font-weight: 800;
- line-height: 1;
-}
-
-.satisfaction-badge-morhan p {
-font-size: 1rem;
- margin-top: 5px;
- line-height: 1.2;
-}
-
-/* --- About Us Section --- */
-.about-us-section {
- display: flex;
- align-items: flex-start;
- gap: 50px;
- padding: 5rem 0;
- margin-bottom: 60px;
-}
-
-.about-us-images {
- flex: 1;
-position: relative;
- min-height: 450px;
- max-width: 550px;
-}
-
-.about-us-img {
- border-radius: 10px;
- box-shadow: 0 5px 20px var(--morhan-shadow);
- position: absolute;
-transition: transform var(--transition);
-}
-
-.about-us-img.large-img {
- width: 100%;
- height: 380px;
-object-fit: cover;
- top: 0;
- left: 0;
-z-index: 2;
-}
-
-.about-us-img.small-img {
- width: 250px;
- height: 180px;
- object-fit: cover;
-z-index: 3;
-}
-
-.about-us-img.top-right {
- top: -30px;
- right: -30px;
-}
-
-.about-us-img.bottom-left {
- bottom: -30px;
-left: -30px;
-}
-
-.about-us-images:hover .about-us-img {
- transform: scale(1.02);
-}
-
-.about-us-content {
- flex: 1;
- color: var(--morhan-text-dark);
-}
-
-.about-us-content h4 {
- font-size: 1.6rem;
- font-weight: 600;
- margin-bottom: 1.5rem;
-color: var(--morhan-primary-blue);
- line-height: 1.4;
-}
-
-.about-us-content p {
- font-size: 1rem;
- margin-bottom: 15px;
- color: var(--morhan-text-medium);
-}
-
-/* --- Services Section --- */
-.services-section-morhan {
- padding: 60px 0;
- margin-bottom: 60px;
-}
-
-.service-grid-morhan {
- display: flex; /* Changed to flex for horizontal scrolling */
- overflow-x: auto; /* Enable horizontal scrolling */
- scroll-snap-type: x mandatory; /* Snap to card start */
- scroll-behavior: smooth;
- -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
- padding-bottom: 20px; /* Space for scrollbar */
- gap: 30px; /* Gap between cards */
-}
-
-.service-card-morhan {
- scroll-snap-align: start; /* Snap point for each card */
- flex: 0 0 calc(80% - 15px); /* Take 80% width minus half the gap on mobile */
- max-width: 80%; /* Ensure max width is 80% on smaller screens */
-min-width: 280px; /* Minimum width for cards */
-background-color: var(--morhan-card-bg);
- border-radius: 10px;
- box-shadow: 0 4px 15px var(--morhan-shadow);
- padding: 2rem;
- text-align: center;
- transition: transform var(--transition), box-shadow var(--transition);
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- min-height: 200px;
-border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
-position: relative;
-overflow: hidden; /* Hide the pseudo-element overflow */
-}
-
-.service-card-morhan::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background: linear-gradient(135deg, rgba(0,123,255,0.1) 0%, rgba(0,86,179,0.05) 100%);
- z-index: 0;
- opacity: 0;
- transition: opacity 0.3s ease;
-}
-
-.service-card-morhan:hover::before {
- opacity: 1;
-}
-
-
-.service-card-morhan:hover {
- transform: translateY(-8px);
- box-shadow: 0 8px 25px var(--morhan-shadow);
-}
-
-.service-card-morhan .icon {
- font-size: 3.5rem;
- margin-bottom: 1.5rem;
- color: var(--morhan-primary-blue);
- position: relative; /* Bring icon above pseudo-element */
- z-index: 1;
-}
-
-.service-card-morhan h4 {
- font-size: 1.4rem;
- font-weight: 600;
- color: var(--morhan-text-dark); /* Ensure text is dark in light mode */
- margin: 0;
- position: relative; /* Bring text above pseudo-element */
- z-index: 1;
-}
-
-/* --- Benefits Section --- */
-.benefits-section-morhan { /* Renamed class from .home-container .py-16 .mb-16 */
- padding: 60px 0;
- margin-bottom: 60px;
-}
-
-.benefit-grid { /* New wrapper for swipe effect */
-display: flex;
- overflow-x: auto;
- scroll-snap-type: x mandatory;
- scroll-behavior: smooth;
- -webkit-overflow-scrolling: touch;
- padding-bottom: 20px;
- gap: 15px;
- margin: 0 auto;
- max-width: 1200px;
-}
-
-.benefit-item {
- scroll-snap-align: start;
- flex: 0 0 calc(90% - 15px); /* Take 90% width minus half the gap on mobile */
- max-width: 90%;
-min-width: 280px; /* Minimum width for benefit items */
- background-color: var(--morhan-card-bg);
- padding: 20px;
- border-radius: 10px;
- box-shadow: 0 4px 10px var(--morhan-shadow);
- text-align: left;
- color: var(--morhan-text-dark);
- display: flex;
- align-items: center;
- font-size: 1.05rem;
- transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.benefit-item:hover {
-transform: translateY(-5px);
- box-shadow: 0 6px 15px var(--morhan-shadow);
-}
-
-.benefit-item i {
- color: var(--morhan-satisfaction-bg);
- margin-right: 10px;
- font-size: 1.3rem;
-}
-
-/* --- Blog Section --- */
-.blog-section-morhan {
- padding: 60px 0;
- margin-bottom: 60px;
- background-color: var(--morhan-bg-light); /* Changed background for light mode */
- color: var(--morhan-text-dark); /* Ensure text is dark in light mode */
- transition: background-color var(--transition), color var(--transition);
-}
-
-.home-page.dark .blog-section-morhan {
- background-color: var(--morhan-primary-blue); /* Retain blue for dark mode */
- color: var(--morhan-satisfaction-text);
-}
-
-.blog-section-morhan .section-title-morhan {
- color: var(--morhan-text-dark); /* Ensure title is dark in light mode */
-}
-
-.home-page.dark .blog-section-morhan .section-title-morhan {
- color: var(--morhan-satisfaction-text); /* Retain white for dark mode */
-}
-
-.blog-description {
- text-align: center;
- max-width: 700px;
- margin: -2rem auto 3rem auto; /* Adjust margin to be below title and above grid */
- font-size: 1.1rem;
- color: var(--morhan-text-medium);
-}
-
-.home-page.dark .blog-description {
- color: rgba(255, 255, 255, 0.8);
-}
-
-
-.blog-grid-morhan {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
- gap: 30px;
-}
-
-.blog-card-morhan {
- background-color: var(--morhan-card-bg);
- border-radius: 10px;
- box-shadow: 0 4px 15px var(--morhan-shadow);
- overflow: hidden;
- transition: transform var(--transition), box-shadow var(--transition);
- color: var(--morhan-text-dark);
-}
-
-.blog-card-morhan:hover {
- transform: translateY(-8px);
- box-shadow: 0 8px 25px var(--morhan-shadow);
-}
-
-.blog-card-img-morhan {
- width: 100%;
- height: 200px;
- object-fit: cover;
- display: block;
-}
-
-.blog-card-content-morhan {
- padding: 20px;
-}
-
-.blog-card-content-morhan h4 {
-font-size: 1.3rem;
- font-weight: 600;
- margin-bottom: 10px;
- line-height: 1.4;
- color: var(--morhan-text-dark);
-}
-
-.blog-date-morhan {
- font-size: 0.9rem;
- color: var(--morhan-text-medium);
-}
-
-/* --- Contact Section --- */
-.contact-section-morhan {
- padding: 80px 0;
- background-color: var(--morhan-bg-light); /* Changed background for light mode */
- color: var(--morhan-text-dark); /* Ensure text is dark in light mode */
- margin-bottom: 0;
- transition: background-color var(--transition), color var(--transition);
-}
-
-.home-page.dark .contact-section-morhan {
- background-color: var(--morhan-primary-blue); /* Retain blue for dark mode */
- color: var(--morhan-satisfaction-text);
-}
-
-.contact-section-morhan .section-title-morhan {
- color: var(--morhan-text-dark); /* Ensure title is dark in light mode */
-}
-
-.home-page.dark .contact-section-morhan .section-title-morhan {
- color: var(--morhan-satisfaction-text); /* Retain white for dark mode */
-}
-
-.contact-content-morhan {
- display: flex;
- gap: 50px;
- align-items: flex-start;
- flex-wrap: wrap;
-}
-
-.contact-details-morhan {
- flex: 1;
- min-width: 300px;
- font-size: 1.1rem;
-}
-
-.contact-details-morhan p {
- margin-bottom: 30px;
- line-height: 1.7;
-}
-
-.contact-list-morhan {
- list-style: none;
- padding: 0;
- margin: 0;
-}
-
-.contact-list-morhan li {
- margin-bottom: 15px;
- display: flex;
- align-items: center;
- color: var(--morhan-text-dark); /* Ensure text is dark in light mode */
-}
-
-.home-page.dark .contact-list-morhan li {
- color: var(--morhan-satisfaction-text); /* Retain white for dark mode */
-}
-
-.contact-list-morhan li i {
- margin-right: 15px;
- font-size: 1.3rem;
- color: var(--morhan-primary-blue); /* Icon color in light mode */
-}
-
-.home-page.dark .contact-list-morhan li i {
- color: var(--morhan-satisfaction-text); /* Icon color in dark mode */
-}
-
-
-.contact-map-form {
- flex: 1;
- display: flex;
- flex-direction: column;
- gap: 30px;
- min-width: 300px;
-}
-
-.contact-map-image {
- width: 100%;
- height: 250px;
- border: 0;
- border-radius: 10px;
-}
-
-.contact-offer-button-wrapper {
- text-align: center;
- margin-top: 50px;
-}
-
-.contact-offer-button {
- display: inline-block;
- padding: 15px 40px;
- background-color: var(--morhan-primary-blue); /* Primary blue for button */
- color: var(--morhan-card-bg); /* White text on button */
- border: none;
- border-radius: 5px;
- font-size: 1.1rem;
- font-weight: 600;
- cursor: pointer;
- text-decoration: none;
- transition: background-color var(--transition), transform 0.2s ease, box-shadow 0.2s ease;
- box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.contact-offer-button:hover {
- background-color: var(--morhan-hover-blue);
- transform: translateY(-3px);
- box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-/* (Content here remains unchanged for all sections like .home-page, .hero-morhan, etc.) */
-
-/* --- Footer Section --- */
-.footer-morhan {
-  background-color: var(--morhan-dark-blue);
-  color: #e0e0e0;
-  padding: 4rem 0 2rem;
-  font-size: 0.95rem;
-}
-
-.footer-content-morhan {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.footer-col-morhan {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footer-col-morhan:first-child {
-  flex: 2;
-  max-width: 350px;
-}
-
-.footer-col-morhan h4 {
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.footer-col-morhan h4:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--morhan-primary-blue);
-}
-
-.footer-social-morhan {
-  margin-top: 25px;
-  display: flex;
-  gap: 15px;
-}
-
-.footer-social-morhan i {
-  font-size: 1.5rem;
-  color: #ffffff;
-  transition: color var(--transition);
-}
-
-.footer-social-morhan i:hover {
-  color: var(--morhan-primary-blue);
-  cursor: pointer;
-}
-
-.footer-col-morhan ul {
-  list-style: none;
-  padding: 0;
+.satisfaction-badge p {
+  font-size: 0.9rem;
+  line-height: 1.2;
   margin: 0;
 }
 
-.footer-col-morhan ul li {
-  margin-bottom: 10px;
-  color: #cccccc;
-  transition: color var(--transition);
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  padding: var(--section-padding);
+  background-color: var(--card-bg);
 }
 
-.footer-col-morhan ul li:hover {
-  color: var(--morhan-primary-blue);
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-images {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 300px 200px;
+  gap: 1rem;
+}
+
+.about-main-img {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.about-secondary-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  color: var(--secondary-color);
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* ===== SERVICES SECTION ===== */
+.services-section {
+  padding: var(--section-padding);
+  background-color: var(--light-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+/* ===== BENEFITS SECTION ===== */
+.benefits-section {
+  padding: var(--section-padding);
+  background-color: var(--card-bg);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  background: var(--light-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+/* ===== BLOG SECTION ===== */
+.blog-section {
+  padding: var(--section-padding);
+  background-color: var(--light-color);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 1.5rem;
+}
+
+.blog-content h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.blog-date {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  padding: var(--section-padding);
+  background-color: var(--card-bg);
+}
+
+.contact-content {
+  display: flex;
+  gap: 3rem;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.contact-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+}
+
+.contact-list i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.contact-map {
+  flex: 1;
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.footer-col p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition);
+  opacity: 0.8;
+}
+
+.footer-col ul li a:hover {
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.footer-button {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
   cursor: pointer;
+  padding: 0;
+  text-align: left;
+  opacity: 0.8;
+  transition: var(--transition);
 }
 
-.footer-bottom-morhan {
+.footer-button:hover {
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid var(--morhan-border);
-  font-size: 0.9rem;
-  color: #cccccc;
-  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 992px) {
+  .hero-container, 
+  .about-container, 
+  .contact-content {
+    flex-direction: column;
+  }
+  
+  .hero-content, 
+  .about-content, 
+  .contact-info {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-images {
+    grid-template-rows: 250px 150px;
+  }
+  
+  .satisfaction-badge {
+    top: -15px;
+    right: -15px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .satisfaction-badge span {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-images {
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px;
+  }
+  
+  .about-secondary-img {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .services-grid, 
+  .benefits-grid, 
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    margin-bottom: 2rem;
+  }
 }
