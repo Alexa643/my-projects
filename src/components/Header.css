@@ -1,15 +1,12 @@
-/* Header styles (same as provided, no changes) */
+/* Stiluri header */
 .header {
-  background-color: #4f46e5;
+  background-color: #2a9d8f;
   color: white;
-  padding: 1rem 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  position: sticky; /* Stays at the top */
+  padding: 0.25rem 0;
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Ensures the header is above other elements but below Navbar's default (999) */
-  /* Consider adjusting z-index of Navbar to be higher if needed */
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -21,139 +18,163 @@
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 40px;
 }
 
-.contact-list {
+/* Lista de contacte desktop */
+.contact-list.desktop-only {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .header-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  white-space: nowrap; /* Prevents contact info from wrapping */
+  white-space: nowrap;
 }
 
-.icon {
-  font-size: 1.1rem;
-  flex-shrink: 0; /* Prevents icons from shrinking on small screens */
-}
-
-.contact-list a {
+.header-item a {
   color: white;
   text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
 }
 
-.contact-list a:hover {
+.header-item a:hover {
+  opacity: 0.9;
   text-decoration: underline;
 }
 
-/* Contact button (for mobile/tablet) */
-.contact-button {
-  background-color: transparent;
-  border: 2px solid white;
+.icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Buton contact mobile */
+.contact-button.mobile-only {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
   color: white;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.contact-button:hover {
-  background-color: white;
-  color: #4f46e5;
+.contact-button.mobile-only:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Hide desktop contact list on smaller screens */
-.desktop-only {
-  display: flex;
+.button-icon {
+  font-size: 1rem;
 }
 
-.mobile-only {
-  display: none; /* Hidden by default on desktop */
-}
-
-/* Modal styles (for the contact modal) */
-.modal-overlay {
+/* Modal styles */
+.modal-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1100; /* Above header (for the contact modal) */
+  z-index: 1100;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
 }
 
 .modal-contact {
-  position: fixed;
-  top: 80px; /* Below header. Adjust if header height changes */
-  right: 50%; /* Center horizontally */
-  transform: translateX(50%); /* Adjust for horizontal centering */
-  background-color: #4f46e5;
-  padding: 1.5rem 2rem;
-  border-radius: 10px;
-  z-index: 1101; /* Above overlay */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1101;
+}
+
+.modal-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  min-width: 250px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.modal-contact .header-item {
+  color: #333;
+}
+
+.modal-contact .header-item a {
+  color: #2a9d8f;
+  font-size: 0.95rem;
+}
+
+.modal-contact .icon {
+  color: #2a9d8f;
 }
 
 .close-button {
-  align-self: flex-end; /* Pushes close button to the right */
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
   background: none;
   border: none;
-  color: white;
+  color: #666;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem;
 }
 
-/* Responsive: mobile and tablet */
+/* Responsive */
 @media (max-width: 768px) {
-  .desktop-only {
-    display: none; /* Hide desktop view */
+  .contact-list.desktop-only {
+    display: none;
   }
-  .mobile-only {
-    display: inline-block; /* Show mobile button */
+  
+  .contact-button.mobile-only {
+    display: flex;
   }
-
+  
   .header {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    position: sticky;
-    top: 0;
+    padding: 0.15rem 0;
   }
-
+  
   .header-content {
-    padding: 0 1rem;
-    gap: 1rem;
-    justify-content: flex-end; /* Push content to the right (where the button is) */
-  }
-
-  .modal-contact {
-    top: 70px; /* Adjust based on header height */
+    padding: 0 0.8rem;
+    height: 36px;
+    justify-content: flex-end;
   }
 }
 
-/* Small mobile */
 @media (max-width: 480px) {
-  .header {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
-  }
-
   .modal-contact {
-    min-width: 220px;
-    top: 60px; /* Adjust based on header height */
+    width: 95%;
+    padding: 1.2rem;
+  }
+  
+  .modal-content {
+    gap: 1.2rem;
   }
 }
