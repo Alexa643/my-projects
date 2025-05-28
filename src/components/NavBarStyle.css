@@ -1,507 +1,517 @@
-/* --- NAVBAR CONTAINER --- */
+/* Main Navbar Container */
 .navbar-container {
   position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 999; /* High z-index to stay on top */
+  z-index: 1000;
   background-color: var(--nav-bg-light);
-  backdrop-filter: blur(8px); /* Frosted glass effect */
-  -webkit-backdrop-filter: blur(8px); /* For Safari */
-  transition: var(--transition);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--nav-shadow-light);
+  transition: var(--transition);
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(42, 157, 143, 0.1);
+}
+
+.navbar-container.dark {
+  background-color: var(--nav-bg-dark);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-bottom-color: rgba(35, 138, 122, 0.2);
 }
 
 .navbar-container.scrolled {
-  padding: 0.5rem 0; /* Shrink padding on scroll */
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.18); /* More prominent shadow when scrolled */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border-bottom-color: rgba(35, 138, 122, 0.2);
 }
 
-/* Dark Mode specific styles for navbar-container */
-.dark .navbar-container {
-  background-color: var(--nav-bg-dark);
-  box-shadow: var(--nav-shadow-dark);
+.navbar-container.dark.scrolled {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.dark .navbar-container.scrolled {
-  box-shadow: 0 4px 25px rgba(255, 255, 255, 0.1);
-}
-
-/* --- NAVBAR (inner element) --- */
 .navbar {
-  max-width: 1200px; /* Max width for content */
-  margin: 0 auto; /* Center the navbar content */
-  padding: 0.75rem 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  min-height: var(--navbar-height); /* Ensure minimum height */
-}
-
-/* --- LOGO --- */
-.navbar-logo-wrapper {
-  display: flex;
   align-items: center;
+  padding: 0 1.5rem;
   height: 100%;
-  cursor: pointer; /* Indicates it's clickable */
 }
 
-.logo {
+/* Logo Styles - Made more cute/friendly */
+.logo-content {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  padding: 4px 0;
-  transition: transform 0.2s ease-in-out;
-}
-
-.logo:hover {
-  transform: scale(1.02); /* Slight zoom effect on hover */
 }
 
 .logo-img {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  transition: filter var(--transition);
-}
-
-/* Dark mode specific for logo */
-.dark .logo-img {
-  /* Invert logo color for dark mode if it's a dark logo and needs to be light */
-  filter: brightness(0) invert(1);
-}
-
-/* --- NAV LINKS (Desktop) --- */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none; /* Remove bullet points */
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  font-weight: 500;
-  padding: 0.5rem 0;
-  color: var(--nav-text-light);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  height: 50px;
   transition: var(--transition);
   position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(35, 138, 122, 0.3));
 }
 
-.nav-links a:hover {
-  color: var(--primary-color);
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(
+    circle,
+    rgba(38, 181, 159, 0.25) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: var(--transition);
+  z-index: 1;
+  animation: pulse 3s infinite alternate;
 }
 
-/* Underline effect for nav links */
-.nav-links a::after {
-  content: "";
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.logo:hover .logo-glow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.3);
+  background: radial-gradient(
+    circle,
+    rgba(35, 138, 122, 0.35) 0%,
+    transparent 70%
+  );
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--nav-text-light);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.navbar-container.dark .nav-link {
+  color: #a0a0a0;
+}
+
+.nav-link-text {
+  position: relative;
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.nav-link-indicator {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
   width: 0;
   height: 2px;
-  background-color: var(--primary-color);
-  transition: width 0.3s ease-out;
+  background: linear-gradient(90deg, #238a7a, #4bbd8b);
+  transition: var(--transition);
+  transform: translateX(-50%);
+  border-radius: 1px;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active-link::after {
-  width: 100%; /* Expands underline on hover or when active */
+.nav-link:hover .nav-link-text,
+.nav-link.active-link .nav-link-text {
+  color: #238a7a;
+  transform: translateY(-1px);
 }
 
-.nav-links a.active-link {
-  color: var(--primary-color);
-  font-weight: 600;
+.nav-link:hover .nav-link-indicator,
+.nav-link.active-link .nav-link-indicator {
+  width: 80%;
 }
 
-/* Dark mode specific for nav links */
-.dark .nav-links a {
-  color: var(--nav-text-dark);
+.nav-link:hover {
+  background-color: rgba(35, 138, 122, 0.05);
 }
 
-.dark .nav-links a:hover {
-  color: var(--primary-color);
+.navbar-container.dark .nav-link:hover {
+  background-color: rgba(35, 138, 122, 0.1);
 }
 
-.dark .nav-links a.active-link {
-  color: var(--primary-color);
-}
-
-/* --- NAV RIGHT --- */
+/* Right Section */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-/* --- BUTTON STYLES --- */
-.login-button-desktop,
-.dark-toggle,
-.login-button-mobile {
-  font-weight: 600;
-  border-radius: 8px;
+/* Login Button */
+.login-button-desktop {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #238a7a;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.9rem;
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(35, 138, 122, 0.2);
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-button-desktop:hover,
-.dark-toggle:hover,
-.login-button-mobile:hover {
-  transform: translateY(-3px); /* Lift effect on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+.login-button-desktop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: var(--transition);
 }
 
-/* --- LOGIN BUTTONS --- */
-.login-button-desktop {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.8rem 1.6rem;
-  white-space: nowrap; /* Prevent text wrapping */
+.login-button-desktop:hover::before {
+  left: 100%;
 }
 
 .login-button-desktop:hover {
-  background-color: var(--primary-color-dark);
-}
-
-/* Dark mode specific for desktop login button */
-.dark .login-button-desktop {
-  background-color: var(
-    --primary-color
-  ); /* Can be same or different in dark mode */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(35, 138, 122, 0.3);
   color: white;
 }
 
-.dark .login-button-desktop:hover {
-  background-color: var(--primary-color-dark);
+.login-button-desktop:active {
+  transform: translateY(0);
 }
 
-/* --- DARK MODE TOGGLE --- */
-.dark-toggle {
-  width: auto;
-  height: auto;
-  background: none;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: none; /* No shadow by default for this button */
-}
-
-.dark-toggle::before {
-  display: none; /* No pseudo-element for hover effect */
-}
-
-.dark-toggle svg {
-  position: relative;
-  width: 24px;
-  height: 24px;
+.login-icon {
+  font-size: 1rem;
   transition: var(--transition);
 }
 
-/* Icon positioning for light mode (sun visible) */
-.dark-toggle .icon-sun {
-  right: auto;
-  left: auto;
+/* Dark Mode Toggle - Enhanced */
+.dark-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0; /* Remove padding here */
+  border-radius: 18px; /* Match track border-radius */
+  transition: var(--transition);
+  width: 60px;
+  height: 36px;
+  position: relative;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide overflow for smooth thumb movement */
+}
+
+.dark-toggle:hover .toggle-track {
+  border-color: #238a7a; /* Stronger border on hover */
+}
+
+.dark-toggle.active:hover .toggle-track {
+  background-color: #1a6f62; /* Slightly darker primary color on hover in dark mode */
+}
+
+.toggle-track {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 138, 122, 0.2);
+  border-radius: 18px;
+  position: absolute; /* Position absolute for the track */
+  top: 0;
+  left: 0;
+  transition: var(--transition);
+  border: 1px solid rgba(35, 138, 122, 0.3);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+.dark-toggle.active .toggle-track {
+  background-color: #238a7a;
+  border-color: #238a7a;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-thumb {
+  position: absolute; /* Position absolute for the thumb */
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%; /* Make it perfectly round */
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background-color 0.3s ease; /* Enhanced transition */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1; /* Ensure thumb is above track */
+}
+
+.dark-toggle.active .toggle-thumb {
+  transform: translateX(24px);
+  background-color: #1f2937;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Darker shadow in dark mode */
+}
+
+.icon-sun,
+.icon-moon {
+  position: absolute;
+  font-size: 0.85rem; /* Slightly larger icons */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Separate transitions for opacity and transform */
+  display: flex; /* Use flex to center the icon within the thumb */
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-sun {
+  color: #f59e0b; /* Warm orange for sun */
   opacity: 1;
-  transform: translateX(0);
-  fill: var(--sun-light);
+  transform: scale(1) rotate(0deg);
 }
 
-.dark-toggle .icon-moon {
-  left: auto;
-  right: auto;
+.icon-moon {
+  color: #e5e5e5; /* Light grey for moon */
   opacity: 0;
-  transform: translateX(0);
-  fill: var(--moon-dark);
-  position: absolute; /* Overlays moon on sun */
+  transform: scale(0.8) rotate(-20deg);
 }
 
-/* Icon positioning for dark mode (moon visible) */
 .dark-toggle.active .icon-sun {
   opacity: 0;
+  transform: scale(0.8) rotate(20deg);
 }
 
 .dark-toggle.active .icon-moon {
   opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
-/* Dark mode specific for dark mode toggle icon colors */
-.dark .dark-toggle .icon-sun {
-  fill: var(--sun-light);
-}
-
-.dark .dark-toggle .icon-moon {
-  fill: var(--moon-dark);
-}
-
-/* --- HAMBURGER MENU --- */
+/* Hamburger Menu - Fixed positioning */
 .hamburger {
-  display: none; /* Hidden by default on desktop */
+  display: none;
   background: none;
   border: none;
-  font-size: 1.8rem;
   cursor: pointer;
-  color: var(--nav-text-light);
+  padding: 0.75rem;
+  border-radius: 10px;
   transition: var(--transition);
-  z-index: 1100; /* Higher than mobile menu overlay */
-  padding: 0.5rem;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-/* Dark mode specific for hamburger */
-.dark .hamburger {
-  color: var(--nav-text-dark);
+.hamburger:hover {
+  background-color: rgba(35, 138, 122, 0.1);
 }
 
-/* --- MODAL STYLES (for Login/Register) --- */
-.modal-overlay {
+.hamburger-lines {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--nav-text-light);
+  border-radius: 1px;
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.navbar-container.dark .line {
+  background-color: var(--nav-text-dark);
+}
+
+.line1.active {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.line2.active {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.line3.active {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  z-index: 1000; /* Below login modal, above main content */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
 }
 
-.login-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--nav-bg-light); /* Modal background */
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  z-index: 1001; /* Above overlay */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 350px;
-  width: 90%;
-  color: var(--nav-text-light);
-  transition: var(--transition);
+/* Mobile Login Button */
+.mobile-login-item {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(35, 138, 122, 0.2);
 }
 
-.dark .login-modal {
-  background-color: var(--nav-bg-dark);
-  color: var(--nav-text-dark);
-}
-
-.login-modal h2 {
-  margin-top: 0;
-  color: var(--primary-color);
-  font-size: 1.8rem;
-}
-
-.login-modal .close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: var(--nav-text-light);
-  cursor: pointer;
-  padding: 0;
-  font-size: 1.5rem;
-  transition: color 0.2s ease;
-}
-
-.dark .login-modal .close-button {
-  color: var(--nav-text-dark);
-}
-
-.login-modal .close-button:hover {
-  color: var(--primary-color);
-}
-
-.modal-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.modal-option-btn {
+.login-button-mobile {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   padding: 1rem 1.5rem;
-  background-color: var(--primary-color);
+  background: #238a7a;
   color: white;
-  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 1rem;
   transition: var(--transition);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(35, 138, 122, 0.2);
+  width: 100%;
+  border: none;
+  cursor: pointer;
 }
 
-.modal-option-btn:hover {
-  background-color: var(--primary-color-dark);
+.login-button-mobile:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(35, 138, 122, 0.3);
+  color: white;
 }
 
-.modal-icon {
-  font-size: 1.3rem;
-}
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar-container {
+    top: 0;
+  }
 
-/* --- MOBILE MENU STYLES --- */
-@media (max-width: 992px) {
   .nav-links {
-    display: none; /* Hide desktop nav links */
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    flex-direction: column;
+    background: var(--nav-bg-light);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2rem 1.5rem;
+    transform: translateX(-100%);
+    transition: var(--transition);
+    gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-right: 1px solid rgba(35, 138, 122, 0.1);
+    justify-content: flex-start;
   }
 
-  .login-button-desktop {
-    display: none; /* Hide desktop login button */
-  }
-
-  .hamburger {
-    display: block; /* Show hamburger menu */
+  .navbar-container.dark .nav-links {
+    background: var(--nav-bg-dark);
+    border-color: rgba(35, 138, 122, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
   .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0; /* Align to top of viewport */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: var(--nav-bg-light);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    /* Adjust padding to account for header height */
-    padding: 2rem 1.5rem;
-    padding-top: calc(var(--navbar-height) + 2rem);
-    overflow-y: auto; /* Enable scrolling for long menus */
-    z-index: 1050; /* Above regular content, below hamburger and modal */
-    align-items: center;
-    justify-content: flex-start; /* Start content from the top */
-    gap: 1rem; /* Spacing between menu items */
+    transform: translateX(0);
   }
 
-  .nav-links.open li {
-    width: 90%; /* Make list items take more width */
-    max-width: 300px; /* Max width for readability */
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links.open li a {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--nav-text-light);
+  .nav-link {
     padding: 1rem 1.5rem;
-    border: 1px solid var(--nav-border-light);
-    border-radius: 8px;
-    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 12px;
     width: 100%;
-    text-align: right;
-    transition: var(--transition);
-  }
-
-  .nav-links.open li a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-  }
-
-  .nav-links.open li a.active-link {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-  }
-
-  .mobile-login-trigger {
-    width: 90%;
-    max-width: 300px;
-    margin-top: 1rem;
-  }
-
-  .login-button-mobile {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    width: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
   }
 
-  .login-button-mobile:hover {
-    background-color: var(--primary-color-dark);
+  .login-button-desktop {
+    display: none;
   }
 
-  /* Dark mode specific for mobile menu */
-  .dark .nav-links.open {
-    background-color: var(--nav-bg-dark);
-    border-color: var(--nav-border-dark);
+  .hamburger {
+    display: flex;
   }
 
-  .dark .nav-links.open li a {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--nav-text-dark);
-    border: 1px solid var(--nav-border-dark);
+  .nav-right {
+    gap: 0.75rem;
   }
 
-  .dark .nav-links.open li a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-  }
-
-  .dark .nav-links.open li a.active-link {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-  }
-
-  .dark .login-button-mobile {
-    background-color: var(--primary-color);
-    color: white;
-  }
-
-  .dark .login-button-mobile:hover {
-    background-color: var(--primary-color-dark);
+  .navbar {
+    padding: 0 1rem;
   }
 }
 
-/* --- SMALL SCREEN ADJUSTMENTS --- */
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   .navbar {
-    padding: 0.5rem 1rem;
+    padding: 0 0.75rem;
   }
 
-  .logo-img {
-    width: 100px; /* Smaller logo on small screens */
+  .nav-links {
+    padding: 1.5rem 1rem;
+  }
+
+  .nav-right {
+    gap: 0.5rem;
   }
 
   .dark-toggle {
-    width: auto;
-    height: auto;
+    width: 50px;
+    height: 30px;
   }
 
-  .dark-toggle svg {
-    width: 20px;
-    height: 20px;
+  .toggle-thumb {
+    width: 26px;
+    height: 26px;
+  }
+
+  .dark-toggle.active .toggle-thumb {
+    transform: translateX(20px);
   }
 }
