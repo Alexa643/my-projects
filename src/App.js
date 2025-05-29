@@ -9,6 +9,8 @@ import ReviewsPage from "./pages/Reviews";
 import Servicii from "./pages/Servicii";
 import "./styles.css";
 import Header from "./components/Header";
+import LoginPage from "./auth/LoginPage";
+import RegisterPage from "./auth/RegisterPage";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -52,6 +54,9 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/recenzii" element={<ReviewsPage />} />
             <Route path="/servicii" element={<Servicii />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            {/* Adaugă alte rute aici */}
           </Routes>
         </main>
         <Footer />

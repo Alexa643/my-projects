@@ -337,48 +337,6 @@ main {
   color: #d1d5db;
 }
 
-/* ---------------- MODAL ---------------- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(6px);
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: var(--card-bg-light);
-  color: var(--text-light);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
-  z-index: 1001;
-}
-
-.dark .modal-content {
-  background: var(--card-bg-dark);
-  color: var(--text-dark);
-}
-
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
 /* ------------------- ABOUT PAGE SPECIFIC STYLES ------------------- */
 .page-content {
   padding: 2rem 1rem;

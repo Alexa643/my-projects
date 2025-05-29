@@ -1,47 +1,36 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  FaMoon,
-  FaSun,
-  FaBars,
-  FaTimes,
-  FaSignInAlt,
-  FaUserPlus,
-} from "react-icons/fa";
-import "./NavBarStyle.css"; // Ensure this path is correct relative to Navbar.jsx
+import { FaMoon, FaSun, FaSignInAlt } from "react-icons/fa";
+import "./NavBarStyle.css";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  const openLoginModal = () => setIsLoginModalOpen(true);
-  const closeLoginModal = () => setIsLoginModalOpen(false);
-
   useEffect(() => {
-    // This effect handles preventing body scroll when menu or modal is open
-    document.body.style.overflow =
-      menuOpen || isLoginModalOpen ? "hidden" : "auto";
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
 
-    const handleScroll = () => {
-      // Sets 'scrolled' state based on scroll position for sticky header effect
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "auto";
     };
-  }, [menuOpen, isLoginModalOpen]); // Dependencies for useEffect
+  }, [menuOpen]);
 
-  // Determines if a link is active based on the current path
-  const isActiveLink = (path) => {
-    return location.pathname === path;
-  };
+  const isActiveLink = (path) => location.pathname === path;
+
+  const navLinks = [
+    { path: "/servicii", label: "Servicii" },
+    { path: "/despre", label: "Despre" },
+    { path: "/recenzii", label: "Recenzii" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
     <>
@@ -51,82 +40,60 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         }`}
       >
         <nav className="navbar">
-          {/* Logo */}
+          {/* Logo Section */}
           <div className="navbar-logo-wrapper" onClick={closeMenu}>
             <Link to="/" className="logo">
-              <img
-                src="/assets/Images/logo.png" // Ensure this path is correct from your public folder
-                alt="Company Logo"
-                className="logo-img"
-              />
+              <div className="logo-content">
+                <img
+                  src="/assets/Images/logo.png"
+                  alt="Company Logo"
+                  className="logo-img"
+                />
+                <div className="logo-glow"></div>
+              </div>
             </Link>
           </div>
 
           {/* Navigation Links */}
           <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-            <li>
-              <Link
-                to="/despre"
-                onClick={closeMenu}
-                className={isActiveLink("/despre") ? "active-link" : ""}
-                aria-current={isActiveLink("/despre") ? "page" : undefined}
-              >
-                Despre Noi
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/servicii"
-                onClick={closeMenu}
-                className={isActiveLink("/servicii") ? "active-link" : ""}
-                aria-current={isActiveLink("/servicii") ? "page" : undefined}
-              >
-                Servicii
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/recenzii"
-                onClick={closeMenu}
-                className={isActiveLink("/recenzii") ? "active-link" : ""}
-                aria-current={isActiveLink("/recenzii") ? "page" : undefined}
-              >
-                Recenzii
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                onClick={closeMenu}
-                className={isActiveLink("/contact") ? "active-link" : ""}
-                aria-current={isActiveLink("/contact") ? "page" : undefined}
-              >
-                Contact
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.path} className="nav-item">
+                <Link
+                  to={link.path}
+                  onClick={closeMenu}
+                  className={`nav-link ${
+                    isActiveLink(link.path) ? "active-link" : ""
+                  }`}
+                  aria-current={isActiveLink(link.path) ? "page" : undefined}
+                >
+                  <span className="nav-link-text">{link.label}</span>
+                  <div className="nav-link-indicator"></div>
+                </Link>
+              </li>
+            ))}
 
-            {/* Mobile Login Button - Only visible when menu is open on mobile */}
+            {/* Mobile Login Button */}
             {menuOpen && (
-              <li className="mobile-login-trigger">
-                <button
-                  onClick={() => {
-                    closeMenu();
-                    openLoginModal();
-                  }}
+              <li className="mobile-login-item">
+                <Link
+                  to="/login"
+                  onClick={closeMenu}
                   className="login-button-mobile"
                 >
-                  <FaSignInAlt /> Login
-                </button>
+                  <FaSignInAlt className="login-icon" />
+                  <span>Login</span>
+                </Link>
               </li>
             )}
           </ul>
 
-          {/* Right-side Elements */}
+          {/* Right Section */}
           <div className="nav-right">
             {/* Desktop Login Button */}
-            <button className="login-button-desktop" onClick={openLoginModal}>
-              Login
-            </button>
+            <Link to="/login" className="login-button-desktop">
+              <FaSignInAlt className="login-icon" />
+              <span>Logare</span>
+            </Link>
 
             {/* Dark Mode Toggle */}
             <button
@@ -134,52 +101,38 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               onClick={() => setDarkMode(!darkMode)}
               aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
             >
-              <FaSun className="icon-sun" />
-              <FaMoon className="icon-moon" />
+              <div className="toggle-track">
+                <div className="toggle-thumb">
+                  <FaSun className="icon-sun" />
+                  <FaMoon className="icon-moon" />
+                </div>
+              </div>
             </button>
 
-            {/* Hamburger Menu (for mobile) */}
+            {/* Mobile Menu Button */}
             <button
               className="hamburger"
               onClick={toggleMenu}
               aria-label={menuOpen ? "Close Menu" : "Open Menu"}
             >
-              {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              <div className="hamburger-lines">
+                <span
+                  className={`line line1 ${menuOpen ? "active" : ""}`}
+                ></span>
+                <span
+                  className={`line line2 ${menuOpen ? "active" : ""}`}
+                ></span>
+                <span
+                  className={`line line3 ${menuOpen ? "active" : ""}`}
+                ></span>
+              </div>
             </button>
           </div>
         </nav>
       </header>
 
-      {/* Login Modal */}
-      {isLoginModalOpen && (
-        <>
-          <div className="modal-overlay" onClick={closeLoginModal}></div>
-          <div className="login-modal">
-            <button className="close-button" onClick={closeLoginModal}>
-              <FaTimes size={24} />
-            </button>
-            <h2>Autentificare</h2>
-            <div className="modal-options">
-              <Link
-                to="/login"
-                onClick={closeLoginModal}
-                className="modal-option-btn"
-              >
-                <FaSignInAlt className="modal-icon" />
-                <span>Login</span>
-              </Link>
-              <Link
-                to="/register"
-                onClick={closeLoginModal}
-                className="modal-option-btn"
-              >
-                <FaUserPlus className="modal-icon" />
-                <span>Register</span>
-              </Link>
-            </div>
-          </div>
-        </>
-      )}
+      {/* Mobile Menu Overlay */}
+      {menuOpen && <div className="mobile-overlay" onClick={closeMenu}></div>}
     </>
   );
 };

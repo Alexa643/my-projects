@@ -2,209 +2,219 @@
 
 /* --- Variabile CSS pentru Teme (Mod Întunecat/Luminos) --- */
 :root {
-    /* Culori mod luminos */
-    --primary-color: #2563eb; /* Albastru principal pentru brand/acțiuni */
-    --primary-color-dark: #1d4ed8; /* O nuanță mai închisă a primarului */
-    --accent-color: #007bff; /* Albastru pentru hover/link activ */
-    --text-light: #1e293b; /* Text închis pe fundal deschis */
-    --text-secondary-light: #64748b; /* Text secundar mai deschis */
-    --background-light: #f8fafc; /* Fundal general deschis */
+  /* Culori mod luminos */
+  --primary-color: #2563eb; /* Albastru principal pentru brand/acțiuni */
+  --primary-color-dark: #1d4ed8; /* O nuanță mai închisă a primarului */
+  --accent-color: #007bff; /* Albastru pentru hover/link activ */
+  --text-light: #1e293b; /* Text închis pe fundal deschis */
+  --text-secondary-light: #64748b; /* Text secundar mai deschis */
+  --background-light: #f8fafc; /* Fundal general deschis */
 
-    /* Culori Navbar (mod luminos) */
-    --nav-bg-light: rgba(255, 255, 255, 0.97); /* Fundal semi-transparent */
-    --nav-shadow-light: 0 2px 20px rgba(0, 0, 0, 0.08); /* Umbră subtilă */
-    --nav-border-light: #e2e8f0; /* Linie subtilă sau separator */
+  /* Culori Navbar (mod luminos) */
+  --nav-bg-light: rgba(255, 255, 255, 0.97); /* Fundal semi-transparent */
+  --nav-shadow-light: 0 2px 20px rgba(0, 0, 0, 0.08); /* Umbră subtilă */
+  --nav-border-light: #e2e8f0; /* Linie subtilă sau separator */
 
-    /* Culori Dark Mode Toggle (mod luminos) */
-    --toggle-bg-light: linear-gradient(135deg, #444, #666);
-    --toggle-knob-light: #fff;
-    --toggle-icon-light: #fff;
+  /* Culori Dark Mode Toggle (mod luminos) */
+  --toggle-bg-light: linear-gradient(135deg, #444, #666);
+  --toggle-knob-light: #fff;
+  --toggle-icon-light: #fff;
 
-    /* Tranzitie globala */
-    --transition: all 0.3s ease;
+  /* Tranzitie globala */
+  --transition: all 0.3s ease;
 }
 
 /* Stiluri pentru modul întunecat */
 body.dark {
-    --primary-color: #64b5f6; /* Albastru mai deschis pentru dark mode */
-    --primary-color-dark: #42a5f5;
-    --accent-color: #42a5f5;
-    --text-light: #f8fafc; /* Text deschis pe fundal închis */
-    --text-secondary-light: #94a3b8;
-    --background-light: #1e293b; /* Fundal general închis */
+  --primary-color: #64b5f6; /* Albastru mai deschis pentru dark mode */
+  --primary-color-dark: #42a5f5;
+  --accent-color: #42a5f5;
+  --text-light: #f8fafc; /* Text deschis pe fundal închis */
+  --text-secondary-light: #94a3b8;
+  --background-light: #1e293b; /* Fundal general închis */
 
-    /* Culori Navbar (mod întunecat) */
-    --nav-bg-light: rgba(29, 39, 52, 0.97); /* Fundal semi-transparent închis */
-    --nav-shadow-light: 0 2px 20px rgba(0, 0, 0, 0.3);
-    --nav-border-light: #334155;
+  /* Culori Navbar (mod întunecat) */
+  --nav-bg-light: rgba(29, 39, 52, 0.97); /* Fundal semi-transparent închis */
+  --nav-shadow-light: 0 2px 20px rgba(0, 0, 0, 0.3);
+  --nav-border-light: #334155;
 
-    /* Culori Dark Mode Toggle (mod întunecat) */
-    --toggle-bg-light: linear-gradient(135deg, #111, #333);
-    --toggle-knob-light: #64b5f6; /* Culoarea comutatorului în dark mode */
-    --toggle-icon-light: #f8fafc; /* Culoarea iconițelor în dark mode */
+  /* Culori Dark Mode Toggle (mod întunecat) */
+  --toggle-bg-light: linear-gradient(135deg, #111, #333);
+  --toggle-knob-light: #64b5f6; /* Culoarea comutatorului în dark mode */
+  --toggle-icon-light: #f8fafc; /* Culoarea iconițelor în dark mode */
 }
 
 /* --- General Contact Section Styles --- */
 .contact-section {
-    padding: 4rem 1.5rem; /* Padding generos pentru secțiune */
-    background-color: var(--background-light); /* Utilizează variabilele din tema */
-    color: var(--text-light);
-    transition: background-color var(--transition), color var(--transition);
+  padding: 4rem 1.5rem; /* Padding generos pentru secțiune */
+  background-color: var(
+    --background-light
+  ); /* Utilizează variabilele din tema */
+  color: var(--text-light);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap; /* Permite elementelor să treacă pe rândul următor pe ecrane mici */
-    gap: 3rem; /* Spațiu între cele două coloane (info și formular) */
-    justify-content: center; /* Centrează conținutul */
-    align-items: flex-start; /* Aliniază elementele în partea de sus */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* Permite elementelor să treacă pe rândul următor pe ecrane mici */
+  gap: 3rem; /* Spațiu între cele două coloane (info și formular) */
+  justify-content: center; /* Centrează conținutul */
+  align-items: flex-start; /* Aliniază elementele în partea de sus */
 }
 
 /* --- Contact Information Column --- */
 .contact-info {
-    flex: 1; /* Ocupă spațiu egal cu formularul pe desktop */
-    min-width: 300px; /* Lățime minimă pentru a evita compresia excesivă */
-    padding: 1.5rem;
-    background-color: var(--nav-bg-light); /* Fundal din tema */
-    border-radius: 12px;
-    box-shadow: var(--nav-shadow-light);
-    transition: var(--transition);
+  flex: 1; /* Ocupă spațiu egal cu formularul pe desktop */
+  min-width: 300px; /* Lățime minimă pentru a evita compresia excesivă */
+  padding: 1.5rem;
+  background-color: var(--nav-bg-light); /* Fundal din tema */
+  border-radius: 12px;
+  box-shadow: var(--nav-shadow-light);
+  transition: var(--transition);
 }
 
 .contact-title {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .contact-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    color: var(--text-secondary-light);
-    text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-secondary-light);
+  text-align: center;
 }
 
 .contact-details-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Spațiu între metodele de contact */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Spațiu între metodele de contact */
 }
 
 .contact-method {
-    display: flex;
-    align-items: flex-start; /* Aliniază iconița și textul în partea de sus */
-    gap: 1rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--nav-border-light); /* Separator subtil */
+  display: flex;
+  align-items: flex-start; /* Aliniază iconița și textul în partea de sus */
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--nav-border-light); /* Separator subtil */
 }
 
 .contact-method:last-child {
-    border-bottom: none; /* Fără separator la ultimul element */
+  border-bottom: none; /* Fără separator la ultimul element */
 }
 
 .contact-icon {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    min-width: 24px; /* Asigură că iconița nu se micșorează */
-    margin-top: 5px; /* Ajustare vizuală pentru aliniere text */
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  min-width: 24px; /* Asigură că iconița nu se micșorează */
+  margin-top: 5px; /* Ajustare vizuală pentru aliniere text */
 }
 
 .contact-method h4 {
-    font-size: 1.25rem;
-    color: var(--text-light);
-    margin-top: 0;
-    margin-bottom: 0.4rem;
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-top: 0;
+  margin-bottom: 0.4rem;
 }
 
 .contact-method p,
 .contact-method a.contact-link {
-    font-size: 1rem;
-    color: var(--text-secondary-light);
-    text-decoration: none;
-    display: block; /* Asigură că linkurile sunt pe rânduri separate dacă sunt mai multe */
-    margin-bottom: 0.2rem;
-    transition: color var(--transition);
+  font-size: 1rem;
+  color: var(--text-secondary-light);
+  text-decoration: none;
+  display: block; /* Asigură că linkurile sunt pe rânduri separate dacă sunt mai multe */
+  margin-bottom: 0.2rem;
+  transition: color var(--transition);
 }
 
 .contact-method a.contact-link:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 
 .contact-method .whatsapp {
-    color: #25d366; /* Culoare specifică WhatsApp */
+  color: #25d366; /* Culoare specifică WhatsApp */
 }
 
 /* --- Mobile Form Button (Vizibil doar pe mobil) --- */
 .open-form-btn {
-    display: none; /* Ascuns pe desktop */
-    width: 100%;
-    padding: 1rem 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 2rem;
-    transition: background-color var(--transition), transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: none; /* Ascuns pe desktop */
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color var(--transition), transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .open-form-btn:hover {
-    background-color: var(--primary-color-dark);
-    transform: translateY(-2px);
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
 }
 
 /* --- Contact Form Column --- */
 .contact-form-container {
-    flex: 1;
-    min-width: 300px;
-    padding: 1.5rem;
-    background-color: var(--nav-bg-light);
-    border-radius: 12px;
-    box-shadow: var(--nav-shadow-light);
-    transition: var(--transition);
+  flex: 1;
+  min-width: 300px;
+  padding: 1.5rem;
+  background-color: var(--nav-bg-light);
+  border-radius: 12px;
+  box-shadow: var(--nav-shadow-light);
+  transition: var(--transition);
 }
 
 .contact-form-container h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .dark .contact-info .contact-title {
-    color: var(--primary-color); /* Acest h2 va folosi primary-color specific dark mode */
+  color: var(
+    --primary-color
+  ); /* Acest h2 va folosi primary-color specific dark mode */
 }
 
 .dark .contact-description {
-    color: var(--text-secondary-light); /* Descrierea va fi text secundar deschis */
+  color: var(
+    --text-secondary-light
+  ); /* Descrierea va fi text secundar deschis */
 }
 
 .dark .contact-method h4 {
-    color: var(--text-light); /* Titlul metodei de contact (ex: Adresa, Telefonic) va fi alb/deschis */
+  color: var(
+    --text-light
+  ); /* Titlul metodei de contact (ex: Adresa, Telefonic) va fi alb/deschis */
 }
 
 .dark .contact-method p,
 .dark .contact-method a.contact-link {
-    color: var(--text-secondary-light); /* P-ul și linkurile vor fi text secundar deschis */
+  color: var(
+    --text-secondary-light
+  ); /* P-ul și linkurile vor fi text secundar deschis */
 }
 
 .dark .contact-method .whatsapp {
-    color: #25d366; /* Forțează verdele WhatsApp și în dark mode dacă vrei, altfel va fi afectat de regulile de mai sus. */
-    /* Dacă vrei ca textul "WhatsApp" să fie text-light, nu schimba aici. */
+  color: #25d366; /* Forțează verdele WhatsApp și în dark mode dacă vrei, altfel va fi afectat de regulile de mai sus. */
+  /* Dacă vrei ca textul "WhatsApp" să fie text-light, nu schimba aici. */
 }
 
 /* Și pentru textul din formular, dacă e cazul */
-.dark .form-group label {
+/* .dark .form-group label {
     color: var(--text-light); /* Etichetele din formular vor fi albe/deschise */
-}
+*/
 
 /* .dark .form-group input,  */
 /* .dark .form-group textarea, */
@@ -213,325 +223,324 @@ body.dark {
 /* } */
 /* --- Form Styles --- */
 .form-group {
-    margin-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--text-light);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  /* color: var(--text-light); */
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid var(--nav-border-light);
-    border-radius: 8px;
-    background-color: var(--background-light); /* Fundal input din tema */
-    color: var(--text-light);
-    font-size: 1rem;
-    transition: border-color var(--transition), box-shadow 0.2s ease;
-    box-sizing: border-box; /* Include padding și border în lățimea totală */
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--nav-border-light);
+  border-radius: 8px;
+  background-color: var(--background-light); /* Fundal input din tema */
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: border-color var(--transition), box-shadow 0.2s ease;
+  box-sizing: border-box; /* Include padding și border în lățimea totală */
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-    border-color: var(--primary-color);
-    /* Am presupus ca ai o variabilă RGB pentru primary-color dacă o folosești */
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* Ex: rgba(var(--primary-color-rgb), 0.2); */
-    outline: none;
+  border-color: var(--primary-color);
+  /* Am presupus ca ai o variabilă RGB pentru primary-color dacă o folosești */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* Ex: rgba(var(--primary-color-rgb), 0.2); */
+  outline: none;
 }
 
 /* Placeholder color in dark mode */
 .dark .form-group input::placeholder,
 .dark .form-group textarea::placeholder,
 .dark .form-group select {
-    color: var(--text-secondary-light);
+  color: var(--text-secondary-light);
 }
 
 .form-row {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.2rem;
-    flex-wrap: wrap; /* Permite câmpurilor să treacă pe rândul următor */
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap; /* Permite câmpurilor să treacă pe rândul următor */
 }
 
 .form-row .form-group {
-    flex: 1; /* Distribuie spațiul egal */
-    min-width: 120px; /* Lățime minimă pentru a evita compresia */
-    margin-bottom: 0; /* Anulează margin-bottom din .form-group pentru elementele din .form-row */
+  flex: 1; /* Distribuie spațiul egal */
+  min-width: 120px; /* Lățime minimă pentru a evita compresia */
+  margin-bottom: 0; /* Anulează margin-bottom din .form-group pentru elementele din .form-row */
 }
 
 textarea {
-    resize: vertical; /* Permite utilizatorului să redimensioneze pe verticală */
+  resize: vertical; /* Permite utilizatorului să redimensioneze pe verticală */
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color var(--transition), transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color var(--transition), transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .submit-btn:hover:not(:disabled) {
-    background-color: var(--primary-color-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .submit-btn:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    opacity: 0.8;
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 .spinner {
-    animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .success-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    background-color: #e6ffe6; 
-    border: 1px solid #4CAF50; 
-    border-radius: 8px;
-    color: #4CAF50;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: #e6ffe6;
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  color: #4caf50;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
 }
 
 .dark .success-message {
-    background-color: #1a361a;
-    border-color: #4CAF50;
-    color: #90EE90;
+  background-color: #1a361a;
+  border-color: #4caf50;
+  color: #90ee90;
 }
 
 .success-message svg {
-    color: #4CAF50;
-    margin-bottom: 1rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
 }
 
 .dark .success-message svg {
-    color: #90EE90;
+  color: #90ee90;
 }
-
 
 /* --- Modal for Mobile Form --- */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundal mai opac */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 1rem; /* Adaugă padding pentru a nu lipi modalul de margini */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundal mai opac */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem; /* Adaugă padding pentru a nu lipi modalul de margini */
 }
 
 .modal-content {
-    background-color: var(--nav-bg-light);
-    padding: 1.5rem; /* Padding puțin mai mic pentru spațiu */
-    border-radius: 12px;
-    width: 100%; /* Ocupă toată lățimea disponibilă minus padding-ul overlay-ului */
-    max-width: 500px; /* Limită maximă */
-    position: relative;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    /* Am eliminat transform: translateY și l-am lăsat doar în JS (framer-motion) */
+  background-color: var(--nav-bg-light);
+  padding: 1.5rem; /* Padding puțin mai mic pentru spațiu */
+  border-radius: 12px;
+  width: 100%; /* Ocupă toată lățimea disponibilă minus padding-ul overlay-ului */
+  max-width: 500px; /* Limită maximă */
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  /* Am eliminat transform: translateY și l-am lăsat doar în JS (framer-motion) */
 }
 
 .dark .modal-content {
-    background-color: var(--nav-bg-light);
+  background-color: var(--nav-bg-light);
 }
 
 .close-btn {
-    position: absolute;
-    top: 10px; /* Mai aproape de colț */
-    right: 10px; /* Mai aproape de colț */
-    background: none;
-    border: none;
-    font-size: 2.5rem; /* Buton de închidere mai mare pentru touch */
-    cursor: pointer;
-    color: var(--text-secondary-light);
-    transition: color 0.2s ease;
-    padding: 0.5rem; /* Padding pentru a face zona de click mai mare */
+  position: absolute;
+  top: 10px; /* Mai aproape de colț */
+  right: 10px; /* Mai aproape de colț */
+  background: none;
+  border: none;
+  font-size: 2.5rem; /* Buton de închidere mai mare pentru touch */
+  cursor: pointer;
+  color: var(--text-secondary-light);
+  transition: color 0.2s ease;
+  padding: 0.5rem; /* Padding pentru a face zona de click mai mare */
 }
 
 .close-btn:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
-
 
 /* --- Media Queries (Ajustări specifice pentru mobil) --- */
 @media (max-width: 768px) {
-    .contact-section {
-        padding: 2rem 1rem; /* Padding redus pentru secțiune */
-    }
+  .contact-section {
+    padding: 2rem 1rem; /* Padding redus pentru secțiune */
+  }
 
-    .contact-container {
-        flex-direction: column; /* Stivuiește coloanele pe mobil */
-        gap: 2.5rem; /* Spațiu între secțiuni, puțin mai mare */
-    }
+  .contact-container {
+    flex-direction: column; /* Stivuiește coloanele pe mobil */
+    gap: 2.5rem; /* Spațiu între secțiuni, puțin mai mare */
+  }
 
-    .contact-info,
-    .contact-form-container {
-        padding: 1.5rem; /* Padding consistent pentru ambele carduri */
-        min-width: unset; /* Anulează min-width pentru a permite flexibilitate */
-        width: 100%; /* Ocupă toată lățimea disponibilă */
-    }
+  .contact-info,
+  .contact-form-container {
+    padding: 1.5rem; /* Padding consistent pentru ambele carduri */
+    min-width: unset; /* Anulează min-width pentru a permite flexibilitate */
+    width: 100%; /* Ocupă toată lățimea disponibilă */
+  }
 
-    .contact-title {
-        font-size: 2rem; /* Dimensiune font ajustată */
-        margin-bottom: 0.8rem;
-    }
+  .contact-title {
+    font-size: 2rem; /* Dimensiune font ajustată */
+    margin-bottom: 0.8rem;
+  }
 
-    .contact-description {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
+  .contact-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
 
-    .contact-details-group {
-        gap: 1rem; /* Spațiu mai mic între metodele de contact */
-    }
+  .contact-details-group {
+    gap: 1rem; /* Spațiu mai mic între metodele de contact */
+  }
 
-    .contact-method {
-        padding: 0.5rem 0; /* Padding mai mic */
-    }
+  .contact-method {
+    padding: 0.5rem 0; /* Padding mai mic */
+  }
 
-    .contact-icon {
-        font-size: 1.6rem; /* Iconițe puțin mai mici */
-        margin-top: 2px; /* Ajustare aliniere */
-    }
+  .contact-icon {
+    font-size: 1.6rem; /* Iconițe puțin mai mici */
+    margin-top: 2px; /* Ajustare aliniere */
+  }
 
-    .contact-method h4 {
-        font-size: 1.15rem; /* Titluri puțin mai mici */
-        margin-bottom: 0.2rem;
-    }
+  .contact-method h4 {
+    font-size: 1.15rem; /* Titluri puțin mai mici */
+    margin-bottom: 0.2rem;
+  }
 
-    .contact-method p,
-    .contact-method a.contact-link {
-        font-size: 0.95rem; /* Text puțin mai mic */
-    }
+  .contact-method p,
+  .contact-method a.contact-link {
+    font-size: 0.95rem; /* Text puțin mai mic */
+  }
 
-    .open-form-btn {
-        display: block; /* Afișează butonul de deschidere formular pe mobil */
-        margin-top: 2rem; /* Asigură un spațiu suficient */
-        font-size: 1rem; /* Font mai mic */
-        padding: 0.9rem 1.2rem;
-    }
+  .open-form-btn {
+    display: block; /* Afișează butonul de deschidere formular pe mobil */
+    margin-top: 2rem; /* Asigură un spațiu suficient */
+    font-size: 1rem; /* Font mai mic */
+    padding: 0.9rem 1.2rem;
+  }
 
-    /* Formularul în sine, când este deschis în modal */
-    .contact-form-container h2 {
-        font-size: 1.7rem; /* Titlul formularului în modal */
-        margin-bottom: 1rem;
-    }
+  /* Formularul în sine, când este deschis în modal */
+  .contact-form-container h2 {
+    font-size: 1.7rem; /* Titlul formularului în modal */
+    margin-bottom: 1rem;
+  }
 
-    .form-group label {
-        font-size: 0.95rem; /* Etichete mai mici */
-        margin-bottom: 0.3rem;
-    }
+  .form-group label {
+    font-size: 0.95rem; /* Etichete mai mici */
+    margin-bottom: 0.3rem;
+  }
 
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        padding: 0.7rem 0.8rem; /* Padding redus pentru input-uri */
-        font-size: 0.9rem; /* Font mai mic în input-uri */
-    }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 0.7rem 0.8rem; /* Padding redus pentru input-uri */
+    font-size: 0.9rem; /* Font mai mic în input-uri */
+  }
 
-    .form-row {
-        flex-direction: column; /* Câmpurile select se stivuiesc și ele */
-        gap: 1rem; /* Spațiu între câmpuri */
-    }
+  .form-row {
+    flex-direction: column; /* Câmpurile select se stivuiesc și ele */
+    gap: 1rem; /* Spațiu între câmpuri */
+  }
 
-    .submit-btn {
-        font-size: 1rem; /* Font mai mic pentru butonul de submit */
-        padding: 0.9rem 1.2rem;
-    }
+  .submit-btn {
+    font-size: 1rem; /* Font mai mic pentru butonul de submit */
+    padding: 0.9rem 1.2rem;
+  }
 
-    .success-message {
-        padding: 1.5rem;
-        font-size: 1.1rem;
-    }
+  .success-message {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
 }
 
 /* Ajustări pentru ecrane foarte mici (ex: iPhone 5/SE) */
 @media (max-width: 480px) {
-    .contact-section {
-        padding: 1.5rem 0.8rem;
-    }
+  .contact-section {
+    padding: 1.5rem 0.8rem;
+  }
 
-    .contact-info,
-    .contact-form-container,
-    .modal-content {
-        padding: 1rem;
-    }
+  .contact-info,
+  .contact-form-container,
+  .modal-content {
+    padding: 1rem;
+  }
 
-    .contact-title {
-        font-size: 1.8rem;
-    }
+  .contact-title {
+    font-size: 1.8rem;
+  }
 
-    .contact-description {
-        font-size: 0.9rem;
-    }
+  .contact-description {
+    font-size: 0.9rem;
+  }
 
-    .contact-method h4 {
-        font-size: 1.05rem;
-    }
+  .contact-method h4 {
+    font-size: 1.05rem;
+  }
 
-    .contact-method p,
-    .contact-method a.contact-link {
-        font-size: 0.85rem;
-    }
+  .contact-method p,
+  .contact-method a.contact-link {
+    font-size: 0.85rem;
+  }
 
-    .contact-icon {
-        font-size: 1.4rem;
-    }
+  .contact-icon {
+    font-size: 1.4rem;
+  }
 
-    .open-form-btn,
-    .submit-btn {
-        font-size: 0.95rem;
-        padding: 0.8rem 1rem;
-    }
+  .open-form-btn,
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+  }
 }
 
 .dark .contact-title {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .dark .contact-form-container h2 {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .form-group input:-webkit-autofill,
@@ -546,11 +555,13 @@ textarea {
 .form-group select:-webkit-autofill:hover,
 .form-group select:-webkit-autofill:focus,
 .form-group select:-webkit-autofill:active {
-    /* Folosim var(--background-light) pentru a fi consistent cu tema */
-    -webkit-box-shadow: 0 0 0px 1000px var(--background-light) inset !important;
-    -webkit-text-fill-color: var(--text-light) !important; /* Culoarea textului să rămână cea a temei */
-    transition: background-color 5000s ease-in-out 0s; /* O tranziție foarte lungă pentru a ascunde schimbarea */
-    box-shadow: 0 0 0px 1000px var(--background-light) inset !important; /* Pentru compatibilitate */
+  /* Folosim var(--background-light) pentru a fi consistent cu tema */
+  -webkit-box-shadow: 0 0 0px 1000px var(--background-light) inset !important;
+  -webkit-text-fill-color: var(
+    --text-light
+  ) !important; /* Culoarea textului să rămână cea a temei */
+  transition: background-color 5000s ease-in-out 0s; /* O tranziție foarte lungă pentru a ascunde schimbarea */
+  box-shadow: 0 0 0px 1000px var(--background-light) inset !important; /* Pentru compatibilitate */
 }
 
 /* Reguli specifice pentru dark mode, dacă fundalul autocomplete devine alb în dark mode */
@@ -566,6 +577,8 @@ body.dark .form-group select:-webkit-autofill,
 body.dark .form-group select:-webkit-autofill:hover,
 body.dark .form-group select:-webkit-autofill:focus,
 body.dark .form-group select:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0px 1000px var(--background-light) inset !important; /* Acum var(--background-light) este fundalul dark mode */
-    -webkit-text-fill-color: var(--text-light) !important; /* Acum var(--text-light) este culoarea textului dark mode */
+  -webkit-box-shadow: 0 0 0px 1000px var(--background-light) inset !important; /* Acum var(--background-light) este fundalul dark mode */
+  -webkit-text-fill-color: var(
+    --text-light
+  ) !important; /* Acum var(--text-light) este culoarea textului dark mode */
 }
