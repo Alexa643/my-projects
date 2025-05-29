@@ -126,6 +126,15 @@
   display: block;
 }
 
+/* Success Message Styles */
+.success-message {
+  color: #2a9d8f; /* A shade of green */
+  font-size: 0.9em;
+  margin-top: -15px; /* Adjust as needed for spacing */
+  margin-bottom: 20px;
+  display: block;
+}
+
 /* Password Wrapper for Toggle Icon */
 .password-wrapper {
   position: relative;

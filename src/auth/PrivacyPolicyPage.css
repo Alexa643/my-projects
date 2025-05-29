@@ -1,0 +1,171 @@
+/* Base styles for the privacy policy container */
+.privacy-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top for content flow */
+  min-height: 100vh;
+  padding: 40px 20px; /* More vertical padding for content */
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark Theme for the Privacy Policy Container */
+.privacy-container.dark {
+  background-color: var(--bg-dark); /* Dark theme background */
+}
+
+/* Privacy Policy Card (similar to auth-card but for policy) */
+.privacy-card {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  max-width: 800px; /* Wider card for readability */
+  width: 100%;
+  text-align: left; /* Align text left for readability */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dark Theme for the Privacy Policy Card */
+.privacy-container.dark .privacy-card {
+  background: var(--card-bg-dark); /* Dark theme card background */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: var(--text-general-dark); /* Ensure text is visible in dark theme */
+}
+
+/* Headings within the privacy policy */
+.privacy-card h1 {
+  font-size: 2.5em;
+  color: #2a9d8f; /* Green theme color */
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.privacy-container.dark .privacy-card h1 {
+  color: #5ddbc5; /* Lighter green for dark theme heading */
+}
+
+.privacy-card h2 {
+  font-size: 1.8em;
+  color: #2a9d8f; /* Green theme color */
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+.privacy-container.dark .privacy-card h2 {
+  color: #5ddbc5;
+}
+
+/* Paragraphs and lists */
+.privacy-card p,
+.privacy-card li {
+  font-size: 1.05em;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.privacy-container.dark .privacy-card p,
+.privacy-container.dark .privacy-card li {
+  color: #f0f0f0; /* Lighter text for dark theme */
+}
+
+.privacy-card ul {
+  list-style-type: disc; /* Use bullets for lists */
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+.privacy-card ul li {
+  margin-bottom: 8px;
+}
+
+/* Specific text within paragraphs */
+.privacy-intro,
+.privacy-date {
+  font-style: italic;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.privacy-container.dark .privacy-intro,
+.privacy-container.dark .privacy-date {
+  color: #aaa;
+}
+
+.app-name {
+  font-weight: 600;
+  color: #21867a;
+}
+
+.privacy-container.dark .app-name {
+  color: #5ddbc5;
+}
+
+/* Links within the privacy policy */
+.privacy-link {
+  color: #2a9d8f;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.privacy-link:hover {
+  color: #21867a;
+  text-decoration: underline;
+}
+
+/* Back button */
+.back-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #2a9d8f;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #21867a;
+}
+
+/* Responsive adjustments for privacy page */
+@media (max-width: 768px) {
+  .privacy-card {
+    padding: 30px;
+    margin: 0 15px;
+  }
+
+  .privacy-card h1 {
+    font-size: 2em;
+  }
+
+  .privacy-card h2 {
+    font-size: 1.5em;
+  }
+
+  .privacy-card p,
+  .privacy-card li {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-card {
+    padding: 20px;
+  }
+
+  .privacy-card h1 {
+    font-size: 1.8em;
+  }
+
+  .privacy-card h2 {
+    font-size: 1.3em;
+  }
+}

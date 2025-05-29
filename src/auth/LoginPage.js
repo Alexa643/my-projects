@@ -110,7 +110,7 @@ const LoginPage = () => {
               <input type="checkbox" />
               Ține-mă conectat
             </label>
-            <a href="#!" className="forgot-link">
+            <a href="/forgot-password" className="forgot-link">
               Ai uitat parola?
             </a>
           </div>
