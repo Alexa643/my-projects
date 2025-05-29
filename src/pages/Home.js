@@ -7,9 +7,9 @@ const HomePage = ({ isDarkMode }) => {
 
   // Images
   const heroImage = '/assets/Images/hero-section.jpg';
-  const aboutImage1 = '/assets/Images/image01.jpg';
+  const aboutImage1 = '/assets/Images/image05.jpg';
   const aboutImage2 = '/assets/Images/image02.jpg';
-  const blogImage1 = '/assets/Images/image01.jpg';
+  const blogImage1 = '/assets/Images/image05.jpg';
   const blogImage2 = '/assets/Images/image02.jpg';
   const blogImage3 = '/assets/Images/image03.jpg';
 
@@ -58,38 +58,67 @@ const HomePage = ({ isDarkMode }) => {
       </section>
 
       {/* About Us */}
-      <section className="about-section">
-        <div className="section-container">
-          <div className="about-images">
-            <img src={aboutImage1} alt="Echipa de curatenie" className="about-main-img" />
-            <img src={aboutImage2} alt="Curatenie profesionala" className="about-secondary-img" />
-          </div>
-          <div className="about-content">
-            <h2 className="section-title">Despre Noi</h2>
-            <h3>Curățenie Morhan: Experiență și Dedicație</h3>
-            <p>Fondată cu scopul de a oferi soluții complete și personalizate de curățenie, echipa noastră aduce profesionalism și atenție la detalii în fiecare proiect.</p>
-            <h3>Viziune și Valori</h3>
-            <p>Ne dorim să devenim partenerul tău de încredere pentru toate nevoile de curățenie, oferind servicii de calitate superioară la prețuri competitive.</p>
-          </div>
+<section className="about-section">
+  <div className="section-container">
+    <div className="about-images">
+      <div className="image-wrapper">
+        <img src={aboutImage1} alt="Echipa de curatenie" className="about-main-img" />
+        <img src={aboutImage2} alt="Curatenie profesionala" className="about-secondary-img" />
+      </div>
+    </div>
+    <div className="about-content">
+      <h2 className="section-title">Despre Noi</h2>
+      <h3 className="about-subtitle">Curățenie Morhan: Experiență și Dedicație</h3>
+      <p className="about-text">Fondată cu scopul de a oferi soluții complete și personalizate de curățenie, echipa noastră aduce profesionalism și atenție la detalii în fiecare proiect.</p>
+      <h3 className="about-subtitle">Viziune și Valori</h3>
+      <p className="about-text">Ne dorim să devenim partenerul tău de încredere pentru toate nevoile de curățenie, oferind servicii de calitate superioară la prețuri competitive.</p>
+      <div className="about-features">
+        <div className="feature-item">
+          <div className="feature-icon">✓</div>
+          <span>Echipamente profesionale</span>
         </div>
-      </section>
+        <div className="feature-item">
+          <div className="feature-icon">✓</div>
+          <span>Produse eco-friendly</span>
+        </div>
+        <div className="feature-item">
+          <div className="feature-icon">✓</div>
+          <span>Personal calificat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Services */}
-      <section className="services-section">
-        <div className="section-container">
-          <h2 className="section-title">Serviciile Noastre</h2>
-          <div className="services-grid">
-            {servicesData.map((service, index) => (
-              <div key={index} className="service-card">
-                <div className="service-icon">
-                  <i className={service.icon}></i>
-                </div>
-                <h3>{service.title}</h3>
-              </div>
-            ))}
+<section className="services-section">
+  <div className="section-container">
+    <div className="section-header">
+      <h2 className="section-title">Serviciile Noastre</h2>
+      <p className="section-subtitle">Soluții complete de curățenie adaptate nevoilor dumneavoastră</p>
+    </div>
+    
+    <div className="services-grid">
+      {servicesData.map((service, index) => (
+        <a 
+          key={index} 
+          href={`/servicii#${service.id}`} 
+          className="service-card"
+          aria-label={`Detalii despre ${service.title}`}
+        >
+          <div className="card-inner">
+            <div className="service-icon">
+              <i className={service.icon}></i>
+            </div>
+            <h3>{service.title}</h3>
+            <p className="service-excerpt">{service.excerpt}</p>
+            <span className="service-link">Află mai multe →</span>
           </div>
-        </div>
-      </section>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Benefits */}
       <section className="benefits-section">
