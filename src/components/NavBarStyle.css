@@ -515,3 +515,16 @@
     transform: translateX(20px);
   }
 }
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-color);
+}

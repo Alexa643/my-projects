@@ -66,7 +66,7 @@
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .section-title {
@@ -188,41 +188,47 @@
 .section-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex; /* Ensure flexbox is used for overall layout */
-    flex-direction: column; /* Default to column for mobile */
-    gap: 2rem; /* Spacing between image and text blocks */
-    padding: 0 1rem; /* Add some horizontal padding to the container */
+    padding: 0 1rem; /* Adaugă padding orizontal containerului principal */
+    /* ATENTIE: AICI AM ELIMINAT display: flex, flex-direction si gap de pe .section-container,
+               deoarece .about-content-wrapper va fi noul container flex principal */
+}
+
+/* --- About Content Wrapper (NOUL CONTAINER FLEX) --- */
+.about-content-wrapper {
+    display: flex; /* Activează flexbox pentru acest container */
+    flex-direction: column; /* Default: elementele vor fi aranjate pe coloane (pentru mobil) */
+    gap: 2rem; /* Spațiu între imagini și blocul de text (pentru mobil) */
 }
 
 @media (min-width: 768px) {
-    .section-container {
-        flex-direction: row; /* Row layout for larger screens */
-        align-items: center; /* Vertically align items in the middle */
-        gap: 4rem; /* More space between columns on desktop */
+    .about-content-wrapper {
+        flex-direction: row; /* Pe ecrane mai mari, aranjează elementele pe un rând */
+        align-items: center; /* Aliniază vertical elementele la mijloc */
+        gap: 4rem; /* Mai mult spațiu între coloane pe desktop */
     }
 }
 
 /* --- About Content (Left Side) --- */
 .about-content {
-    flex: 1.5; /* Give more space to the text content */
-    color: black; /* Ensure text color is defined */
-    order: 2; /* Default order for mobile (images above text) */
+    flex: 1.5; /* Dă mai mult spațiu conținutului textului */
+    color: black; /* Asigură-te că culoarea textului este definită */
+    order: 2; /* Ordinea implicită pentru mobil (imaginile deasupra textului) */
 }
 
 @media (min-width: 768px) {
     .about-content {
-        order: 1; /* Move text content to the left on desktop */
-        text-align: left; /* Ensure text is left-aligned */
+        order: 1; /* Mută conținutul textului la stânga pe desktop */
+        text-align: left; /* Asigură alinierea textului la stânga */
     }
 }
 
 .section-title {
-    font-size: 2.2rem; /* Slightly larger title */
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
     color: var(--primary-color);
     position: relative;
-    padding-bottom: 0.8rem; /* More space for the underline */
-    font-weight: 700; /* Make the title bolder */
+    padding-bottom: 0.8rem;
+    font-weight: 700;
 }
 
 .section-title::after {
@@ -230,79 +236,59 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px; /* Slightly longer underline */
-    height: 4px; /* Thicker underline */
+    width: 60px;
+    height: 4px;
     background-color: var(--secondary-color);
-    border-radius: 2px; /* Slightly rounded ends for the underline */
+    border-radius: 2px;
 }
 
 @media (max-width: 767px) {
     .section-title {
-        text-align: center; /* Center title on mobile */
+        text-align: center;
     }
     .section-title::after {
-        left: 50%; /* Center underline on mobile */
+        left: 50%;
         transform: translateX(-50%);
     }
 }
 
+/* --- About Images (Right Side) --- */
+.about-images {
+    flex: 1; /* Dă mai puțin spațiu imaginilor (făcându-le mai mici relativ la text) */
+    position: relative;
+    order: 1; /* Ordinea implicită pentru mobil (imaginile deasupra textului) */
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
 .about-subtitle {
-    font-size: 1.4rem; /* Slightly larger subtitle */
-    margin: 1.8rem 0 1rem; /* Adjusted spacing */
+    font-size: 1.4rem;
+    margin: 1.8rem 0 1rem;
     color: var(--text-dark);
     font-weight: 600;
 }
 
 .about-text {
-    margin-bottom: 1.5rem; /* More space after paragraphs */
+    margin-bottom: 1.5rem;
     color: var(--text-color);
-    line-height: 1.7; /* Improved readability */
-    font-size: 1rem; /* Standard text size */
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
-/* --- About Images (Right Side) --- */
-.about-images {
-    flex: 1; /* Give less space to the images (making them smaller relative to text) */
-    position: relative;
-    order: 1; /* Default order for mobile (images above text) */
-    padding: 1rem; /* Add some padding around the images for visual breathing room */
-    background-color: var(--card-bg); /* Use card background for a subtle lift effect */
-    border-radius: var(--border-radius); /* Apply border-radius to the container */
-    box-shadow: var(--box-shadow); /* Add a subtle shadow to the image container */
-}
-
-@media (min-width: 768px) {
-    .about-images {
-        order: 2; /* Move images to the right on desktop */
-        min-width: 350px; /* Ensure images don't get too small */
-        max-width: 450px; /* Cap image width on very large screens */
-    }
-}
-
-.image-wrapper {
+.image-grid { /* Ai numit-o .image-grid în HTML, nu .image-wrapper */
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 200px 120px; /* Slightly smaller rows to make images smaller overall */
+    grid-template-rows: 200px 120px;
     gap: 1rem;
-    background-color: transparent; /* Ensure wrapper background is transparent */
+    background-color: transparent;
 }
 
-/* No change needed for .about-main-img and .about-secondary-img themselves,
-   as their sizing is controlled by the grid-template-rows of .image-wrapper. */
-.about-main-img {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
+/* Numele claselor pentru imagini în HTML-ul tău sunt .main-image și .secondary-image
+   dar imaginile în sine sunt .about-main-img și .about-secondary-img */
+.about-main-img,
 .about-secondary-img {
-    grid-column: 2;
-    grid-row: 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -313,9 +299,17 @@
 
 .about-main-img:hover,
 .about-secondary-img:hover {
-    transform: scale(1.05); /* Slightly more pronounced hover effect */
-    box-shadow: var(--box-shadow-hover); /* Add a new hover shadow variable */
-    z-index: 1; /* Bring the hovered image slightly forward */
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-small); /* Am folosit small pentru o umbră mai subtilă la hover */
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .about-images {
+        order: 2; /* Mută imaginile la dreapta pe desktop */
+        min-width: 350px;
+        max-width: 450px;
+    }
 }
 
 /* --- About Features --- */
@@ -323,72 +317,73 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 2rem; /* More space above features */
-    justify-content: flex-start; /* Align features to the start */
+    margin-top: 2rem;
+    justify-content: flex-start;
 }
 
 @media (max-width: 767px) {
     .about-features {
-        justify-content: center; /* Center features on mobile */
+        justify-content: center;
     }
 }
 
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem; /* Increased gap */
-    padding: 0.75rem 1.25rem; /* Increased padding */
-    border-radius: 25px; /* More rounded pill shape */
-    font-size: 1rem; /* Slightly larger font size */
-    background-color: var(--light-bg); /* Use a subtle background color for features */
-    border: 1px solid var(--border-color); /* Add a light border */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
 .feature-item:hover {
-    transform: translateY(-3px); /* Lift effect on hover */
-    box-shadow: var(--box-shadow-small); /* Subtle shadow on hover */
-    background-color: var(--primary-light-bg); /* Change background on hover */
-    color: var(--primary-color-text); /* Change text color if needed */
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-small);
+    background-color: var(--primary-light-bg);
+    color: var(--primary-color); /* Am setat o culoare explicită pentru text la hover, dacă este cazul */
 }
 
 .feature-icon {
     color: var(--primary-color);
     font-weight: bold;
-    font-size: 1.1rem; /* Slightly larger icon */
+    font-size: 1.1rem;
 }
 
-/* --- Dark Mode Adjustments (if applicable) --- */
+/* --- Dark Mode Adjustments (dacă aplici dark mode) --- */
+/* Asigură-te că ai un mecanism de a adăuga clasa .dark-mode pe <body> sau un alt element părinte */
 .dark-mode .about-section {
-    background-color: var(--dark-card-bg);
+    background-color: var(--dark-card-bg, #333); /* Fallback value dacă var nu e definită */
 }
 
 .dark-mode .about-content {
-    color: var(--dark-text-color);
+    color: var(--dark-text-color, #eee);
 }
 
 .dark-mode .about-images {
-    background-color: var(--dark-card-bg);
-    box-shadow: var(--dark-box-shadow);
+    background-color: var(--dark-card-bg, #333);
+    box-shadow: var(--dark-box-shadow, 0 4px 8px rgba(255, 255, 255, 0.05));
 }
 
 .dark-mode .about-subtitle {
-    color: var(--dark-text-dark);
+    color: var(--dark-text-dark, #ddd);
 }
 
 .dark-mode .about-text {
-    color: var(--dark-text-color);
+    color: var(--dark-text-color, #ccc);
 }
 
 .dark-mode .feature-item {
-    background-color: var(--dark-light-bg);
-    border-color: var(--dark-border-color);
-    color: var(--dark-text-color);
+    background-color: var(--dark-light-bg, #444);
+    border-color: var(--dark-border-color, #555);
+    color: var(--dark-text-color, #eee);
 }
 
 .dark-mode .feature-item:hover {
-    background-color: var(--dark-primary-light-bg);
-    color: var(--dark-primary-color-text);
+    background-color: var(--dark-primary-light-bg, #555);
+    color: var(--dark-primary-color-text, var(--primary-color)); /* Poate vrei sa pastrezi primary-color si in dark mode */
 }
 
 /* ===== SERVICES SECTION ===== */
@@ -481,7 +476,7 @@
 }
 
 .service-excerpt {
-  color: var(--text-light);
+  
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
