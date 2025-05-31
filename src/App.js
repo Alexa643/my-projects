@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage"
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ReviewsPage from "./pages/Reviews";
@@ -49,7 +49,7 @@ const App = () => {
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/despre" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/recenzii" element={<ReviewsPage />} />
