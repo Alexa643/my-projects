@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ReviewsPage from "./pages/Reviews";
-import Servicii from "./pages/Servicii";
+import Services from   "./pages/Services";
 import "./styles.css";
 import Header from "./components/Header";
 import LoginPage from "./auth/LoginPage";
@@ -59,7 +59,7 @@ const App = () => {
             <Route path="/despre" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/recenzii" element={<ReviewsPage />} />
-            <Route path="/servicii" element={<Servicii />} />
+            <Route path="/servicii" element={<Services />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

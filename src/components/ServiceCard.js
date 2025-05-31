@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../styles.css'; 
+import '../styles.css';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -9,26 +9,23 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: 'easeOut'
-    }
-  }
+      ease: 'easeOut',
+    },
+  },
 };
 
-const CardServiciu = ({ icon, titlu, descriere }) => {
+const ServiceCard = ({ icon, title, description }) => {
   return (
     <motion.div
-      className="card-serviciu"
+      className="service-card"
       variants={cardVariants}
       whileHover={{ scale: 1.05 }}
     >
       <div className="card-icon">{icon}</div>
-      <h3 className="card-title">{titlu}</h3>
-      <p className="card-description">{descriere}</p>
+      <h3 className="card-title">{title}</h3>
+      <p className="card-description">{description}</p>
     </motion.div>
   );
 };
 
-export default CardServiciu;
-
-
-
+export default ServiceCard;
