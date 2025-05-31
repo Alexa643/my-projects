@@ -535,9 +535,9 @@ textarea {
   }
 }
 
-.dark .contact-title {
+/* .dark .contact-title {
   color: var(--primary-color);
-}
+} */
 
 .dark .contact-form-container h2 {
   color: var(--primary-color);

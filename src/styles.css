@@ -175,7 +175,7 @@ main {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ---------------- SERVICES SECTION ---------------- */
+/* ---------------- SERVICES SECTION ----------------
 .servicii-section {
     padding: 4rem 2rem;
     background-color: var(--bg-light);
@@ -267,6 +267,9 @@ main {
 }
 
 .dark .card-description {
+
+  color: #d1d5db;
+} 
     color: var(--text-color-dark); /* Asigură culoarea descrierii în dark mode */
 }
 
