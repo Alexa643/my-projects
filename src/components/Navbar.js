@@ -45,7 +45,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             <Link to="/" className="logo">
               <div className="logo-content">
                 <img
-                  src="/assets/Images/logo.png"
+                  src="/assets/Images/logo1.png"
                   alt="Company Logo"
                   className="logo-img"
                 />
