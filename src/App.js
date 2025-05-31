@@ -11,6 +11,8 @@ import "./styles.css";
 import Header from "./components/Header";
 import LoginPage from "./auth/LoginPage";
 import RegisterPage from "./auth/RegisterPage";
+import PrivacyPolicyPage from "./auth/PrivacyPolicyPage";
+import ForgotPassPage from "./auth/ForgotPassPage"; // Importăm ForgotPassPage
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -56,6 +58,8 @@ const App = () => {
             <Route path="/servicii" element={<Servicii />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/forgot-password" element={<ForgotPassPage />} />
             {/* Adaugă alte rute aici */}
           </Routes>
         </main>

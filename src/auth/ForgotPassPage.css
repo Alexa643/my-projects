@@ -1,0 +1,170 @@
+.auth-container.dark {
+  background-color: var(
+    --bg-dark,
+    #282c34
+  ); /* Folosește o valoare implicită dacă nu ai variabile */
+}
+
+/* Stiluri de bază pentru cardul de autentificare - Reutilizate */
+.auth-card {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Temă întunecată pentru card - Reutilizată */
+.auth-container.dark .auth-card {
+  background: var(--card-bg-dark, #333); /* Folosește o valoare implicită */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: var(--text-general-dark, #f8f8f8); /* Folosește o valoare implicită */
+}
+
+/* Efect de hover pentru card - Reutilizat */
+.auth-card:hover {
+  box-shadow: 0 20px 40px rgba(35, 138, 122, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Stiluri pentru titlu - Reutilizate */
+.auth-card h1 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  color: inherit; /* Moștenește culoarea de la părinte pentru a se adapta temei */
+  transition: color 0.3s ease;
+}
+
+/* Stiluri pentru paragraf - Reutilizate */
+.auth-card p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: inherit; /* Moștenește culoarea de la părinte */
+  transition: color 0.3s ease;
+}
+
+/* Stiluri pentru grupul de formular - Reutilizate */
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* Stiluri pentru label - Reutilizate */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.95em;
+  color: inherit; /* Moștenește culoarea de la părinte */
+  transition: color 0.3s ease;
+}
+
+/* Rândul de input pentru plasarea iconului - Reutilizat */
+.input-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Iconul de input în afara câmpului - Reutilizat */
+.input-icon-outside {
+  position: absolute;
+  left: 15px;
+  z-index: 1;
+  color: #888; /* Culoare implicită pentru icon */
+  transition: color 0.3s ease;
+}
+
+/* Stiluri pentru câmpul de input - Reutilizate */
+.auth-form input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  padding: 12px 15px 12px 45px; /* Spațiu pentru icon */
+  background-color: transparent;
+  outline: none;
+  color: #333;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    color 0.3s ease, background-color 0.3s ease;
+}
+
+.auth-container.dark .auth-form input {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+/* Starea de focus a inputului - Reutilizată */
+.auth-form input:focus {
+  border-color: #2a9d8f;
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+}
+
+/* Starea de eroare pentru input - Reutilizată */
+.auth-form input.error {
+  border-color: #e74c3c;
+}
+
+/* Stiluri pentru mesajul de eroare - Reutilizate */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85em;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Stiluri pentru mesajul de succes (nou) */
+.success-message {
+  color: #2a9d8f; /* Un verde plăcut */
+  font-size: 0.9em;
+  margin-top: -15px; /* Ajustează spațierea */
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Butonul principal de autentificare (Resetează parola) - Reutilizat */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2a9d8f;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Starea de hover a butonului - Reutilizată */
+.auth-button:hover {
+  background-color: #21867a;
+}
+
+/* Starea dezactivată a butonului - Reutilizată */
+.auth-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Footer-ul de autentificare - Reutilizat */
+.auth-footer {
+  font-size: 0.9em;
+  margin-top: 25px; /* Ajustează marginea superioară */
+  transition: color 0.3s ease;
+}
+
+/* Stiluri pentru link-ul din footer - Reutilizate */
+.auth-footer a {
+  color: #2a9d8f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Starea de hover a link-ului din footer - Reutilizată */
+.auth-footer a:hover {
+  color: #21867a;
+  text-decoration: underline;
+}
