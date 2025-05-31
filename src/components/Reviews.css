@@ -1,0 +1,161 @@
+/* ---------------- REVIEWS SECTION (Add Review) ---------------- */
+
+.review-section {
+    padding: 4rem 1rem;
+    background-color: var(--bg-light); /* Folosește variabila globală */
+    transition: background 0.3s;
+}
+
+.dark .review-section {
+    background-color: var(--bg-dark); /* Folosește variabila globală */
+}
+
+.review-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 16px;
+    background: var(--card-bg-light); /* Folosește variabila globală */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s;
+}
+
+.dark .review-container {
+    background-color: var(--card-bg-dark); /* Folosește variabila globală */
+}
+
+.review-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--heading-color-light); /* Utilizează variabila pentru titluri */
+    transition: var(--transition); /* Adaugă tranziție */
+}
+
+.dark .review-title {
+    color: var(--heading-color-dark); /* Culoarea titlului în dark mode */
+}
+
+/* === Form === */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-form input,
+.review-form textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f8fafc; /* Un fundal ușor pentru inputuri */
+    color: var(--text-general-light); /* Culoarea textului introdus */
+    transition: all 0.3s;
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+    border-color: var(--primary-color); /* Culoarea primară la focus */
+    outline: none;
+    background-color: #eef2ff; /* Un fundal mai deschis la focus */
+}
+
+.dark .review-form input,
+.dark .review-form textarea {
+    background-color: #334155;
+    border-color: #475569;
+    color: var(--text-general-dark); /* Culoarea textului introdus în dark mode */
+}
+
+.dark .review-form input:focus,
+.dark .review-form textarea:focus {
+    background-color: #475569;
+    border-color: var(--primary-color);
+}
+
+/* === Stars === */
+.rating-select {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #d1d5db; /* Gri pentru stelele inactive */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star.active {
+    color: #facc15; /* Galben pentru stelele active */
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark)); /* Folosește variabilele tale */
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--primary-color-dark); /* O nuanță mai închisă la hover */
+}
+
+/* === Reviews list === */
+.review-list {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-stars {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1.05rem;
+    color: var(--text-color-light); /* Utilizează variabila */
+    transition: var(--transition); /* Adaugă tranziție */
+}
+
+.dark .card-text {
+    color: var(--text-color-dark); /* Aplică culoarea dark mode */
+}
+
+.card-author {
+    text-align: right;
+    font-style: italic;
+    color: var(--text-color-light); /* Utilizează variabila, poate o nuanță mai închisă decât text-color-light */
+    margin-top: 0.5rem;
+    transition: var(--transition); /* Adaugă tranziție */
+}
+
+.dark .card-author {
+    color: var(--text-color-dark); /* Aplică culoarea dark mode, poate o nuanță mai deschisă */
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .review-container {
+        padding: 1.2rem;
+    }
+
+    .review-title {
+        font-size: 1.6rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}

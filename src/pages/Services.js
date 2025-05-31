@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ServiceCard from '../components/ServiceCard';
 import { FaBroom, FaBuilding, FaCouch } from 'react-icons/fa';
+import './Services.css'; 
 
 const servicesData = [
   {

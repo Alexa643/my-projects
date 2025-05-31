@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import "../styles.css"; // asigură-te că ai legat fișierul CSS
+import "./Reviews.css"; 
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([

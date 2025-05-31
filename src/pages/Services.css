@@ -1,0 +1,89 @@
+/* ------------------- SERVICES SECTION ------------------- */
+.services-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--heading-color-light); /* Utilizează noua variabilă pentru titluri */
+    position: relative;
+    transition: var(--transition); /* Adaugă tranziție */
+}
+
+.services-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.card-serviciu { /* This class remains as it's likely internal to ServiceCard */
+    background: var(--card-bg-light);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-serviciu:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon { /* This class remains as it's likely internal to ServiceCard */
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.card-title { /* This class remains as it's likely internal to ServiceCard */
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--heading-color-light); /* Asigură culoarea titlului în light mode */
+    transition: var(--transition); /* Adaugă tranziție */
+}
+
+.card-description { /* This class remains as it's likely internal to ServiceCard */
+    color: var(--text-color-light); /* Utilizează variabila pentru textul general */
+    font-size: 1rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: var(--transition); /* Adaugă tranziție */
+}
+
+/* Dark mode adjustments for Services section */
+.dark .services-section {
+    background-color: var(--bg-dark);
+}
+
+.dark .services-title {
+    color: var(--heading-color-dark); /* Culoarea titlului în dark mode */
+}
+
+.dark .card-serviciu {
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark .card-title {
+    color: var(--heading-color-dark); /* Asigură culoarea titlului în dark mode */
+}
+
+.dark .card-description {
+    color: var(--text-color-dark);
+}

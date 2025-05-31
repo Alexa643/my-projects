@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import React from "react";
-import "../styles.css";
+import "./About.css"; 
 
 const About = () => {
   return (
