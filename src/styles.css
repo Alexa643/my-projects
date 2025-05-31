@@ -81,19 +81,7 @@ main {
     color: var(--text-general-dark); /* Asigură că textul de bază este deschis */
 }
 
-/* Selectori pentru a asigura că toate elementele de text moștenesc culoarea */
-.dark p,
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6,
-.dark a,
-.dark li,
-.dark span {
-    color: var(--text-general-dark); /* Implicit pentru dark mode */
-}
+
 
 /* Păstrează dacă e relevant */
 .dark .title-rating {

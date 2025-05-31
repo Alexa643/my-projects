@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ReviewsPage from "./pages/Reviews";
@@ -12,36 +12,40 @@ import Header from "./components/Header";
 import LoginPage from "./auth/LoginPage";
 import RegisterPage from "./auth/RegisterPage";
 import PrivacyPolicyPage from "./auth/PrivacyPolicyPage";
-import ForgotPassPage from "./auth/ForgotPassPage"; // Importăm ForgotPassPage
+import ForgotPassPage from "./auth/ForgotPassPage";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(() => {
-    // Verificăm localStorage și preferința sistemului
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return savedTheme === "dark";
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved === "dark";
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
+  // Incarcă stylesheet-ul temei activ
   useEffect(() => {
-    // Actualizăm clasa pe documentElement și în localStorage
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+    const themeId = "theme-link";
+    let themeLink = document.getElementById(themeId);
+
+    if (!themeLink) {
+      themeLink = document.createElement("link");
+      themeLink.id = themeId;
+      themeLink.rel = "stylesheet";
+      document.head.appendChild(themeLink);
     }
 
-    // Ascultăm schimbările de preferință ale sistemului
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    themeLink.href = `/themes/${darkMode ? "dark" : "light"}.css`;
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+
+    // Ascultă preferințele sistemului (opțional)
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e) => {
       if (!localStorage.getItem("theme")) {
         setDarkMode(e.matches);
       }
     };
-    mediaQuery.addEventListener("change", handler);
+    media.addEventListener("change", handler);
 
-    return () => mediaQuery.removeEventListener("change", handler);
+    return () => media.removeEventListener("change", handler);
   }, [darkMode]);
 
   return (
@@ -60,7 +64,7 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/forgot-password" element={<ForgotPassPage />} />
-            {/* Adaugă alte rute aici */}
+            {/* Alte rute pot fi adăugate aici */}
           </Routes>
         </main>
         <Footer />
