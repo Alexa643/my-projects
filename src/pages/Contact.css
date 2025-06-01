@@ -47,9 +47,6 @@ body.dark {
 /* --- General Contact Section Styles --- */
 .contact-section {
   padding: 4rem 1.5rem; /* Padding generos pentru secțiune */
-  background-color: var(
-    --background-light
-  ); /* Utilizează variabilele din tema */
   color: var(--text-light);
   transition: background-color var(--transition), color var(--transition);
 }
@@ -69,7 +66,6 @@ body.dark {
   flex: 1; /* Ocupă spațiu egal cu formularul pe desktop */
   min-width: 300px; /* Lățime minimă pentru a evita compresia excesivă */
   padding: 1.5rem;
-  background-color: var(--nav-bg-light); /* Fundal din tema */
   border-radius: 12px;
   box-shadow: var(--nav-shadow-light);
   transition: var(--transition);
@@ -86,7 +82,6 @@ body.dark {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  color: var(--text-secondary-light);
   text-align: center;
 }
 
@@ -168,7 +163,6 @@ body.dark {
   flex: 1;
   min-width: 300px;
   padding: 1.5rem;
-  background-color: var(--nav-bg-light);
   border-radius: 12px;
   box-shadow: var(--nav-shadow-light);
   transition: var(--transition);
@@ -185,12 +179,6 @@ body.dark {
   color: var(
     --primary-color
   ); /* Acest h2 va folosi primary-color specific dark mode */
-}
-
-.dark .contact-description {
-  color: var(
-    --text-secondary-light
-  ); /* Descrierea va fi text secundar deschis */
 }
 
 .dark .contact-method h4 {

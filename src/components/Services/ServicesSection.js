@@ -15,7 +15,6 @@ import {
 import ServiceCard from "./ServiceCard";
 import EquipmentShowcase from "./EquipmentShowcase"; // New component
 import ServiceDetails from "./ServiceDetails"; // New component
-
 import "./ServicesSection.css"; // Keep main section styles
 
 const ServicesSection = () => {
@@ -28,7 +27,7 @@ const ServicesSection = () => {
       title: "Curățenie Persoane Fizice",
       description: "Servicii complete de curățenie pentru locuințe private.",
       icon: <FaHome />,
-      imageId: "d800f5f0-4f91-4d9c-8379-b7cd814de524",
+      imageId: "assets/Images/curatenie-pers-fizica.jpg",
       detailedInfo: {
         title: "Curățenie pentru Persoane Fizice",
         description:
@@ -52,7 +51,7 @@ const ServicesSection = () => {
       title: "Curățat Tapițerii & Mochete",
       description: "Curățare profesională cu aparatul Tennant E5.",
       icon: <FaCouch />,
-      imageId: "",
+      imageId: "assets/Images/curatenie-tapiteri-mochete.jpg",
       detailedInfo: {
         title: "Curățat Tapițerii, Mochetă Fixă, Scaune și Colțare",
         description:
@@ -77,7 +76,7 @@ const ServicesSection = () => {
       title: "Curățenie Generală",
       description: "Curățenie completă și riguroasă pentru locuințe.",
       icon: <FaMagic />,
-      imageId: "",
+      imageId: "assets/Images/curatenie-generala.jpg",
       detailedInfo: {
         title: "Curățenie Generală și de Întreținere",
         description:
@@ -105,7 +104,7 @@ const ServicesSection = () => {
       title: "Curățenie Apartamente Noi",
       description: "Servicii specializate pentru spații noi sau renovate.",
       icon: <FaTools />,
-      imageId: "",
+      imageId: "assets/Images/curatenie-apartamente-noi.jpg",
       detailedInfo: {
         title: "Curățenie Apartamente / Spații Noi",
         description:
@@ -131,7 +130,7 @@ const ServicesSection = () => {
       title: "Curățenie Birouri",
       description: "Servicii profesionale pentru spații de lucru.",
       icon: <FaBuilding />,
-      imageId: "",
+      imageId: "assets/Images/curatenie-birouri.jpg",
       detailedInfo: {
         title: "Curățenie Generală și de Întreținere Spații Birouri",
         description:
@@ -157,7 +156,7 @@ const ServicesSection = () => {
       title: "Curățenie Persoane Juridice",
       description: "Soluții complete pentru companii și instituții.",
       icon: <FaStore />,
-      imageId: "",
+      imageId: "assets/Images/curatenie-pers-juridice.jpg",
       detailedInfo: {
         title: "Curățenie pentru Persoane Juridice",
         description:
@@ -182,7 +181,7 @@ const ServicesSection = () => {
       title: "Curățenie Spații Verzi",
       description: "Întreținerea și curățarea spațiilor exterioare.",
       icon: <FaLeaf />,
-      imageId: "5fc159e7-4b26-4dad-b0c5-5198b37eca9b",
+      imageId: "assets/Images/curatenie-spatii-verzi.jpg",
       detailedInfo: {
         title: "Curățenie Spații Verzi",
         description:
@@ -277,9 +276,11 @@ const ServicesSection = () => {
             </div>
           </div>
           <div className="cta-image-placeholder">
-            <div className="image-placeholder">
-              <span>Locul pentru imaginea companiei</span>
-            </div>
+            {/* Image now fits perfectly */}
+            <img
+              src="/assets/Images/imaginea-companiei-3.jpg"
+              alt="Imagine Companie"
+            />
           </div>
         </div>
       </div>
