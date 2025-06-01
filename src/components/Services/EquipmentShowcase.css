@@ -244,21 +244,16 @@
 
 /* IMPORTANT: Styles for the 4 specification cards to be on one row WITHOUT SCROLL */
 .specifications-grid {
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  gap: 10px;
+  display: grid; /* Changed to grid */
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 20px; /* Increased gap for better spacing */
   margin-bottom: 80px;
-  flex-wrap: nowrap;
-  overflow-x: hidden;
+  /* Removed flex-wrap: nowrap; and overflow-x: hidden; */
 }
 
 .spec-card {
-  flex-shrink: 1;
-  flex-grow: 1;
-  flex-basis: 0;
-  min-width: 0;
-  padding: 15px;
+  /* Removed flex-shrink, flex-grow, flex-basis, min-width as grid handles this */
+  padding: 20px; /* Increased padding */
   border-radius: 15px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -266,25 +261,33 @@
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
+  display: flex; /* Added flex for content alignment */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* The active state only applies when activeSpec matches the card's index (i.e., on hover) */
 .spec-card:hover,
 .spec-card.active {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  /* This .active class will now only apply if `activeSpec` is set by onMouseEnter */
+  background: rgba(255, 255, 255, 0.25); /* Slightly more opaque background */
+  transform: translateY(-12px) scale(1.03); /* More pronounced lift and subtle scale */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  border-color: rgba(255, 255, 255, 0.5); /* Highlight border */
 }
 
 .spec-icon {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem; /* Slightly larger icon */
+  margin-bottom: 12px; /* Adjusted margin */
   display: block;
+  color: #ffffff; /* Ensure icon color is white */
 }
 
 .spec-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 1.1rem; /* Slightly larger title */
+  font-weight: 700; /* Bolder title */
+  margin-bottom: 10px; /* Adjusted margin */
   color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
@@ -292,22 +295,28 @@
 }
 
 .spec-value {
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: 1.8rem; /* Larger value */
+  font-weight: 900; /* Even bolder value */
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-image: linear-gradient(
+    45deg,
+    #e0f7fa,
+    #ffffff,
+    #e0f7fa
+  ); /* Subtle gradient for value */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .spec-description {
-  font-size: 0.8rem;
-  opacity: 0.8;
-  line-height: 1.4;
+  font-size: 0.9rem; /* Slightly larger description */
+  opacity: 0.9; /* More visible description */
+  line-height: 1.5;
   margin: 0;
 }
 /* END of IMPORTANT changes for specification cards */
@@ -325,6 +334,9 @@
   .process-steps {
     max-width: 500px;
     margin: 0 auto;
+  }
+  .specifications-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
   }
 }
 
@@ -352,22 +364,20 @@
 
   /* Adjustments for spec cards on smaller screens (still no scroll) */
   .spec-card {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 15px; /* Slightly reduced padding */
   }
   .spec-icon {
-    font-size: 1.8rem;
-    margin-bottom: 5px;
+    font-size: 2rem; /* Adjusted icon size */
   }
   .spec-title {
-    font-size: 0.85rem;
+    font-size: 0.95rem; /* Adjusted title size */
   }
   .spec-value {
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Adjusted value size */
   }
   .spec-description {
-    font-size: 0.7rem;
-    line-height: 1.3;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 }
 
@@ -393,21 +403,23 @@
   .spec-description {
     font-size: 0.8rem;
   }
-
+  .specifications-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
   /* Very specific adjustments for tiny screens if needed for spec-cards */
   .spec-card {
-    padding: 8px;
+    padding: 12px;
   }
   .spec-icon {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .spec-title {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
   .spec-value {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .spec-description {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 }

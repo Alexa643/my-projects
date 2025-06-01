@@ -63,12 +63,12 @@ const ServiceDetails = ({ service, onClose }) => {
             <div className="details-image">
               <div className="image-container">
                 {service.imageId ? (
-                  <div
-                    className="service-image-placeholder"
-                    data-image-id={service.imageId}
-                  >
-                    <span>Imagine Serviciu</span>
-                    <span className="image-id">{service.imageId}</span>
+                  <div className="service-image-wrapper">
+                    <img
+                      src={service.imageId}
+                      alt={service.title}
+                      className="service-image"
+                    />
                   </div>
                 ) : (
                   <div className="service-image-placeholder">

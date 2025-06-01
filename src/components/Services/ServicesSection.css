@@ -55,7 +55,6 @@
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: var(--text-general-light);
   max-width: 700px;
   margin: 0 auto;
 }
@@ -169,10 +168,20 @@
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
+  /* Added to ensure image doesn't overflow */
+  overflow: hidden;
 }
 
 .cta-image-placeholder:hover {
   border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Added styles for the image inside the placeholder --- */
+.cta-image-placeholder img {
+  width: 100%; /* Make the image fill the width of its container */
+  height: 100%; /* Make the image fill the height of its container */
+  object-fit: cover; /* This is the key: crops the image to fit without distortion */
+  border-radius: 14px; /* Optional: slightly smaller border-radius than parent for visual effect */
 }
 
 /* --- Responsive Adjustments --- */
