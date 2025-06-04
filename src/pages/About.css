@@ -1,239 +1,253 @@
 /* ------------------- ABOUT PAGE SPECIFIC STYLES ------------------- */
 .page-content {
-    padding: 2rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .page-title {
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--primary-color); /* Culoarea primară e adesea ok și pe dark */
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 1rem;
-    transition: var(--transition); /* Adaugă tranziție */
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--primary-color); /* Culoarea primară e adesea ok și pe dark */
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .page-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--primary-color);
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
 .about-image {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .about-image:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .about-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
 }
 
 .about-img:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .about-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .paragraph {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    
-    transition: var(--transition); /* Adaugă tranziție */
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .about-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .feature-card {
-    background: rgba(79, 70, 229, 0.05);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(79, 70, 229, 0.1);
+  background: rgba(79, 70, 229, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(79, 70, 229, 0.1);
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.1);
-    background: rgba(79, 70, 229, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.1);
+  background: rgba(79, 70, 229, 0.08);
 }
 
 .feature-card h3 {
-    color: var(--primary-color); /* Culoarea primară ar trebui să fie ok și pe dark */
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-    transition: var(--transition); /* Adaugă tranziție */
+  color: var(
+    --primary-color
+  ); /* Culoarea primară ar trebui să fie ok și pe dark */
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .feature-card p {
-    color: var(--text-color-light); /* Utilizează variabila pentru text general */
-    font-size: 0.95rem;
-    opacity: 0.9;
-    transition: var(--transition); /* Adaugă tranziție */
+  color: var(--text-color-light); /* Utilizează variabila pentru text general */
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .reviews-section {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .reviews-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--primary-color); /* Culoarea primară ar trebui să fie ok și pe dark */
-    transition: var(--transition); /* Adaugă tranziție */
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(
+    --primary-color
+  ); /* Culoarea primară ar trebui să fie ok și pe dark */
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .review-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .review-card {
-    background: var(--card-bg-light);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    position: relative;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 /* CULOARE PENTRU ELEMENTUL ::before (de ex., ghilimele) */
 .review-card::before {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 4rem;
-    font-family: serif;
-    line-height: 1;
-    color: rgba(0, 0, 0, 0.1); /* Culoare deschisă pentru ghilimele în light mode */
-    transition: var(--transition); /* Adaugă tranziție */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 4rem;
+  font-family: serif;
+  line-height: 1;
+  color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Culoare deschisă pentru ghilimele în light mode */
+  transition: var(--transition); /* Adaugă tranziție */
 }
 .dark .review-card::before {
-    color: rgba(255, 255, 255, 0.1); /* Culoare închisă pentru ghilimele în dark mode */
+  color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Culoare închisă pentru ghilimele în dark mode */
 }
 
-
 .review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .review-card p {
-    font-style: italic;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
-    color: var(--text-color-light); /* Asigură culoarea textului review-ului */
-    transition: var(--transition); /* Adaugă tranziție */
+  font-style: italic;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .review-card strong {
-    color: var(--primary-color); /* Culoarea primară ar trebui să fie ok și pe dark */
-    font-weight: 600;
-    transition: var(--transition); /* Adaugă tranziție */
+  color: var(
+    --primary-color
+  ); /* Culoarea primară ar trebui să fie ok și pe dark */
+  font-weight: 600;
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 .map-container {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .map-container h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--primary-color); /* Culoarea primară ar trebui să fie ok și pe dark */
-    transition: var(--transition); /* Adaugă tranziție */
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(
+    --primary-color
+  ); /* Culoarea primară ar trebui să fie ok și pe dark */
+  transition: var(--transition); /* Adaugă tranziție */
 }
 
 /* Dark mode adjustments for About page */
-.dark .page-title,
+/* .dark .page-title,
 .dark .reviews-section h2,
 .dark .map-container h2 {
     color: var(--heading-color-dark); /* Aplică culoarea dark mode pentru titluri */
-}
 
-.dark .paragraph,
+/* .dark .paragraph,
 .dark .feature-card p,
 .dark .review-card p,
 .dark .review-card strong {
-    color: var(--text-color-dark); /* Aplică culoarea dark mode pentru text general */
-}
+  color: var(
+    --text-color-dark
+  ); /* Aplică culoarea dark mode pentru text general */
 
 .dark .about-img {
-    filter: brightness(0.9);
+  filter: brightness(0.9);
 }
 
 .dark .feature-card {
-    background: rgba(79, 70, 229, 0.1);
-    border-color: rgba(79, 70, 229, 0.2);
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.2);
 }
 
 .dark .feature-card:hover {
-    background: rgba(79, 70, 229, 0.15);
+  background: rgba(79, 70, 229, 0.15);
 }
 
 .dark .review-card {
-    background: var(--card-bg-dark);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .dark .review-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive adjustments for About page */
 @media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-    .review-cards {
-        grid-template-columns: 1fr;
-    }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+  .review-cards {
+    grid-template-columns: 1fr;
+  }
 }
