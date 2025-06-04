@@ -6,7 +6,7 @@ const HomePage = ({ isDarkMode }) => {
   const navigate = useNavigate();
 
   // Images
-  const heroImage = "/assets/Images/hero-cleaning.jpg"; 
+  const heroImage = "/assets/Images/hero-cleaning.jpg";
   const aboutImage1 = "/assets/Images/image05.jpg";
   const aboutImage2 = "/assets/Images/image02.jpg";
   const blogImage1 = "/assets/Images/image05.jpg";
@@ -17,7 +17,7 @@ const HomePage = ({ isDarkMode }) => {
   // The current URL "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.814349479383!2d24.153723715878484!3d45.7709322791054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474c6767b45a0b73%3A0x67c2d1b0d2d3c9e6!2sStrada%20C%C4%83l%C8%9Bun%2026%2C%20Sibiu%20550298!5e0!3m2!1sen!2sro!4v1707056000000!5m2!1sen!2sro" is not a functional embed URL.
   // You should get a valid embed code from Google Maps for your specific location.
   const googleMapsEmbedUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.814349479383!2d24.153723715878484!3d45.7709322791054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474c6767b45a0b73%3A0x67c2d1b0d2d3c9e6!2sStrada%20C%C4%83l%C8%9Bun%2026%2C%20Sibiu%20550298!5e0!3m2!1sen!2sro!4v1707056000000!5m2!1sen!2sro (YOUR ACTUAL GOOGLE MAPS EMBED CODE HERE)";
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2780.207914845012!2d24.16781741589139!3d45.79555137910609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474c67cf7f3a9e33%3A0x3f5c71b3e9a7e6e!2sStrada%20C%C4%83l%C8%9Bun%2026%2C%20Sibiu%20550298%2C%20Romania!5e0!3m2!1sen!2suk!4v1678901234567!5m2!1sen!2suk"; // Replace with a valid URL!
 
   const servicesData = [
     {
@@ -78,21 +78,21 @@ const HomePage = ({ isDarkMode }) => {
       title: "Sfaturi pentru curățenia de primăvară",
       date: "Aprilie 21, 2025",
       image: blogImage1,
-      excerpt: "Descoperă cele mai eficiente metode pentru curățenia de primăvară.",
+      excerpt: "Descoperă cele mai eficiente metode pentru curățenia de primăvară și cum să îți pregătești casa.",
       link: "/blog/sfaturi-curatenie-primavara", // Example link
     },
     {
-      title: "Produse eco pentru curățenie",
+      title: "Produse eco pentru curățenie: Ghid complet",
       date: "Aprilie 16, 2025",
       image: blogImage2,
-      excerpt: "Ghidul complet pentru produse de curățenie ecologice și sigure.",
+      excerpt: "Află ce produse ecologice poți folosi pentru o curățenie eficientă și sigură pentru mediul înconjurător.",
       link: "/blog/produse-eco-curatenie",
     },
     {
       title: "Cum să menții casa curată cu animale de companie",
       date: "Aprilie 11, 2025",
       image: blogImage3,
-      excerpt: "Trucuri și sfaturi pentru o casă impecabilă chiar și cu animale de companie.",
+      excerpt: "Trucuri și sfaturi practice pentru o casă impecabilă, chiar și atunci când ai animale de companie.",
       link: "/blog/curatenie-cu-animale-de-companie",
     },
   ];
@@ -101,11 +101,11 @@ const HomePage = ({ isDarkMode }) => {
     <div className={`home-page ${isDarkMode ? "dark-mode" : ""}`}>
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-container">
+        <div className="section-container hero-container">
           <div className="hero-content">
             <h1 className="hero-title">Servicii profesionale de curățenie în Sibiu</h1>
             <p className="hero-subtitle">
-              Oferim soluții eficiente și personalizate pentru curățenie rezidențială, birouri și spații comerciale.
+              Oferim soluții eficiente și personalizate pentru curățenie rezidențială, birouri și spații comerciale, adaptate nevoilor tale.
             </p>
             <button onClick={() => navigate("/contact")} className="cta-button">
               <span>Cere o ofertă</span>
@@ -122,6 +122,7 @@ const HomePage = ({ isDarkMode }) => {
             </div>
           </div>
         </div>
+        {/* Wave SVG - Placed outside hero-container to span full width */}
         <div className="hero-wave">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
             <path
@@ -137,34 +138,19 @@ const HomePage = ({ isDarkMode }) => {
       <section className="about-section">
         <div className="section-container">
           <div className="about-content-wrapper">
-            <div className="about-images">
-              <div className="image-grid">
-                <div className="main-image">
-                  <img src={aboutImage1 || "/placeholder.svg"} alt="Echipa de curatenie" className="about-main-img" />
-                </div>
-                <div className="secondary-image">
-                  <img
-                    src={aboutImage2 || "/placeholder.svg"}
-                    alt="Curatenie profesionala"
-                    className="about-secondary-img"
-                  />
-                </div>
-              </div>
-            </div>
             <div className="about-content">
-              <div className="section-header">
+              <div className="section-header" style={{ textAlign: 'left', marginBottom: '2rem' }}>
                 <h2 className="section-title">Despre Noi</h2>
-                <div className="title-underline"></div>
+                <p className="section-subtitle" style={{ maxWidth: 'none', margin: '0' }}>Curățenie Morhan: Experiență și Dedicație</p>
               </div>
-              <h3 className="about-subtitle">Curățenie Morhan: Experiență și Dedicație</h3>
               <p className="about-text">
                 Fondată cu scopul de a oferi soluții complete și personalizate de curățenie, echipa noastră aduce
-                profesionalism și atenție la detalii în fiecare proiect.
+                profesionalism și atenție la detalii în fiecare proiect. Ne dedicăm să transformăm spațiile în medii impecabile, folosind tehnici moderne și produse eficiente.
               </p>
               <h3 className="about-subtitle">Viziune și Valori</h3>
               <p className="about-text">
                 Ne dorim să devenim partenerul tău de încredere pentru toate nevoile de curățenie, oferind servicii de
-                calitate superioară la prețuri competitive.
+                calitate superioară la prețuri competitive. Transparența, promptitudinea și respectul față de clienți sunt pilonii activității noastre.
               </p>
               <div className="about-features">
                 <div className="feature-item">
@@ -187,6 +173,20 @@ const HomePage = ({ isDarkMode }) => {
                 </div>
               </div>
             </div>
+            <div className="about-images">
+              <div className="image-grid">
+                <div className="main-image">
+                  <img src={aboutImage1 || "/placeholder.svg"} alt="Echipa de curatenie" className="about-main-img" />
+                </div>
+                <div className="secondary-image">
+                  <img
+                    src={aboutImage2 || "/placeholder.svg"}
+                    alt="Curatenie profesionala"
+                    className="about-secondary-img"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -196,7 +196,6 @@ const HomePage = ({ isDarkMode }) => {
         <div className="section-container">
           <div className="section-header">
             <h2 className="section-title">Serviciile Noastre</h2>
-            <div className="title-underline"></div>
             <p className="section-subtitle">Soluții complete de curățenie adaptate nevoilor dumneavoastră</p>
           </div>
 
@@ -216,7 +215,6 @@ const HomePage = ({ isDarkMode }) => {
                   <p className="service-excerpt">{service.excerpt}</p>
                   <span className="service-link">Află mai multe <i className="fa-solid fa-arrow-right"></i></span>
                 </div>
-                <div className="card-overlay"></div> {/* Keep the overlay if you have styling for it */}
               </a>
             ))}
           </div>
@@ -228,7 +226,7 @@ const HomePage = ({ isDarkMode }) => {
         <div className="section-container">
           <div className="section-header">
             <h2 className="section-title">De ce să ne alegi?</h2>
-            <div className="title-underline"></div>
+            <p className="section-subtitle">Alegerea ideală pentru un spațiu curat și sănătos</p>
           </div>
           <div className="benefits-grid">
             {benefitsData.map((benefit, idx) => (
@@ -243,16 +241,16 @@ const HomePage = ({ isDarkMode }) => {
         </div>
       </section>
 
-      {/* Blog Section */}
+      {/* Blog Section - NEW */}
       <section className="blog-section">
         <div className="section-container">
           <div className="section-header">
             <h2 className="section-title">Ultimele Articole</h2>
-            <div className="title-underline"></div>
+            <p className="section-subtitle">Descoperă sfaturi utile și noutăți din lumea curățeniei</p>
           </div>
           <div className="blog-grid">
             {blogArticles.map((article, idx) => (
-              <article key={idx} className="blog-card">
+              <a href={article.link} key={idx} className="blog-card" aria-label={`Citește articolul: ${article.title}`}>
                 <div className="blog-image">
                   <img src={article.image || "/placeholder.svg"} alt={article.title} />
                   <div className="blog-overlay">
@@ -267,9 +265,10 @@ const HomePage = ({ isDarkMode }) => {
                       <i className="fa-solid fa-calendar"></i>
                       {article.date}
                     </span>
+                    <span className="read-more">Citește mai mult <i className="fa-solid fa-arrow-right"></i></span>
                   </div>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>
@@ -280,7 +279,7 @@ const HomePage = ({ isDarkMode }) => {
         <div className="section-container">
           <div className="section-header">
             <h2 className="section-title">Contact</h2>
-            <div className="title-underline"></div>
+            <p className="section-subtitle">Suntem aici să te ajutăm cu nevoile tale de curățenie!</p>
           </div>
           <div className="contact-content">
             <div className="contact-info">
