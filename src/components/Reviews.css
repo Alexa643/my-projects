@@ -191,7 +191,7 @@
 .read-more-btn:hover {
   background-color: var(--primary-color-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+  
 }
 
 /* Stars */
