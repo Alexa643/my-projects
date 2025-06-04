@@ -22,11 +22,11 @@
   border: 1px solid rgba(35, 138, 122, 0.15);
 }
 
-.service-card:hover {
+/* .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(35, 138, 122, 0.15);
   border-color: rgba(35, 138, 122, 0.3);
-}
+} */
 
 [data-theme="dark"] .service-card:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
