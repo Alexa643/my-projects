@@ -47,7 +47,6 @@ body.dark {
 /* --- General Contact Section Styles --- */
 .contact-section {
   padding: 4rem 1.5rem; /* Padding generos pentru secțiune */
-  color: var(--text-light);
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -112,7 +111,6 @@ body.dark {
 
 .contact-method h4 {
   font-size: 1.25rem;
-  color: var(--text-light);
   margin-top: 0;
   margin-bottom: 0.4rem;
 }
@@ -120,7 +118,6 @@ body.dark {
 .contact-method p,
 .contact-method a.contact-link {
   font-size: 1rem;
-  color: var(--text-secondary-light);
   text-decoration: none;
   display: block; /* Asigură că linkurile sunt pe rânduri separate dacă sunt mai multe */
   margin-bottom: 0.2rem;
@@ -179,19 +176,6 @@ body.dark {
   color: var(
     --primary-color
   ); /* Acest h2 va folosi primary-color specific dark mode */
-}
-
-.dark .contact-method h4 {
-  color: var(
-    --text-light
-  ); /* Titlul metodei de contact (ex: Adresa, Telefonic) va fi alb/deschis */
-}
-
-.dark .contact-method p,
-.dark .contact-method a.contact-link {
-  color: var(
-    --text-secondary-light
-  ); /* P-ul și linkurile vor fi text secundar deschis */
 }
 
 .dark .contact-method .whatsapp {
@@ -368,10 +352,6 @@ textarea {
   position: relative;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   /* Am eliminat transform: translateY și l-am lăsat doar în JS (framer-motion) */
-}
-
-.dark .modal-content {
-  background-color: var(--nav-bg-light);
 }
 
 .close-btn {

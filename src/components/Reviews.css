@@ -191,7 +191,6 @@
 .read-more-btn:hover {
   background-color: var(--primary-color-dark);
   transform: translateY(-2px);
-  
 }
 
 /* Stars */
@@ -568,6 +567,100 @@
   position: relative;
   z-index: 1;
   padding-left: 2.5rem; /* More indent */
+}
+/* =================== DARK MODE =================== */
+/* .dark .testimonials-reviews-container {
+  background: var(--bg-dark);
+  color: var(--text-general-dark);
+} */
+
+/* .dark .section-title {
+  color: var(--heading-color-dark);
+} */
+
+.dark .testimonial-card,
+.dark .testimonial-content,
+.dark .form-card,
+.dark .review-card {
+  box-shadow: 0 6px 25px var(--nav-shadow-dark);
+}
+
+.dark .testimonial-card,
+.dark .review-card {
+  border-left: 5px solid var(--primary-color);
+}
+
+.dark .testimonial-author-title {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+  color: #fff;
+}
+
+.dark .form-label {
+  color: var(--text-color-dark);
+}
+
+.dark .form-input,
+.dark .form-textarea {
+  background: var(--card-bg-dark);
+  color: var(--text-general-dark);
+  border: 2px solid var(--nav-border-dark);
+}
+
+.dark .form-input::placeholder,
+.dark .form-textarea::placeholder {
+  color: #aaa;
+}
+
+.dark .form-input:focus,
+.dark .form-textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.2);
+}
+
+.dark .review-header {
+  border-bottom: 1px solid var(--nav-border-dark);
+}
+
+.dark .modal-content {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+}
+
+.dark .modal-close {
+  color: #bbb;
+}
+
+.dark .modal-close:hover {
+  background-color: var(--nav-border-dark);
+  color: var(--primary-color);
+}
+
+.dark .modal-testimonial-header {
+  border-bottom: 1px solid var(--nav-border-dark);
+}
+
+/* .dark .modal-client-name {
+  color: var(--heading-color-dark);
+} */
+
+/* .dark .modal-client-title,
+.dark .modal-client-company,
+.dark .modal-client-location {
+  color: var(--text-color-dark);
+} */
+
+.dark .modal-testimonial-container {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--nav-border-dark);
+  color: var(--text-color-dark);
+}
+
+.dark .modal-testimonial-text {
+  color: var(--text-color-dark);
+}
+
+.dark .reviewer-avatar {
+  background-color: var(--primary-color);
+  color: var(--heading-color-dark);
 }
 
 /* Responsive Design */
