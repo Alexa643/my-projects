@@ -1,15 +1,13 @@
-// Reviews.jsx
 "use client";
 
 import { useState } from "react";
 import {
   FaStar,
-  FaQuoteLeft,
   FaTimes,
   FaPaperPlane,
   FaUser,
   FaBuilding,
-  FaMapMarkerAlt, // Added for location icon
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import "./Reviews.css";
 
@@ -315,7 +313,6 @@ const Reviews = () => {
               </div>
 
               <div className="modal-testimonial-container">
-                <FaQuoteLeft className="modal-quote-icon" />
                 <p className="modal-testimonial-text">
                   {selectedTestimonial.fullText}
                 </p>
