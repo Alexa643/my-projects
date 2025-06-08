@@ -303,8 +303,9 @@
 }
 
 .about-content {
-  flex: 1.5;
-  order: 2;
+  flex: 1.5; /* Dă mai mult spațiu conținutului textului */
+  color: black; /* Asigură-te că culoarea textului este definită */
+  order: 2; /* Ordinea implicită pentru mobil (imaginile deasupra textului) */
 }
 
 @media (min-width: 992px) {
