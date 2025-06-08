@@ -6,6 +6,7 @@ import "./NavBarStyle.css";
 const Navbar = ({ darkMode, setDarkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -24,6 +25,13 @@ const Navbar = ({ darkMode, setDarkMode }) => {
   }, [menuOpen]);
 
   const isActiveLink = (path) => location.pathname === path;
+
+  const handleThemeToggle = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDarkMode((prev) => !prev);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
 
   const navLinks = [
     { path: "/servicii", label: "Servicii" },
@@ -61,7 +69,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 <Link
                   to={link.path}
                   onClick={closeMenu}
-                  className={`nav-link ${isActiveLink(link.path) ? "active-link" : ""}`}
+                  className={`nav-link ${
+                    isActiveLink(link.path) ? "active-link" : ""
+                  }`}
                   aria-current={isActiveLink(link.path) ? "page" : undefined}
                 >
                   <span className="nav-link-text">{link.label}</span>
@@ -73,7 +83,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             {/* Mobile Login */}
             {menuOpen && (
               <li className="mobile-login-item">
-                <Link to="/login" onClick={closeMenu} className="login-button-mobile">
+                <Link
+                  to="/login"
+                  onClick={closeMenu}
+                  className="login-button-mobile"
+                >
                   <FaSignInAlt className="login-icon" />
                   <span>Login</span>
                 </Link>
@@ -89,13 +103,30 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               <span>Logare</span>
             </Link>
 
-            {/* Dark/Light Toggle */}
+            {/* Enhanced Dark/Light Toggle */}
             <button
-              className="theme-toggle"
-              onClick={() => setDarkMode(prev => !prev)}
+              className={`theme-toggle ${darkMode ? "dark" : "light"} ${
+                isAnimating ? "animating" : ""
+              }`}
+              onClick={handleThemeToggle}
               aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
+              disabled={isAnimating}
             >
-              {darkMode ? <FaSun /> : <FaMoon />}
+              <div className="toggle-track">
+                <div className="toggle-thumb">
+                  {darkMode ? (
+                    <FaMoon className="toggle-icon moon" />
+                  ) : (
+                    <FaSun className="toggle-icon sun" />
+                  )}
+                </div>
+                <div className="toggle-crater"></div>
+                <div className="toggle-stars">
+                  {[1, 2, 3].map((star) => (
+                    <div key={star} className="toggle-star"></div>
+                  ))}
+                </div>
+              </div>
             </button>
 
             {/* Hamburger Menu */}
@@ -105,9 +136,15 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               aria-label={menuOpen ? "Close Menu" : "Open Menu"}
             >
               <div className="hamburger-lines">
-                <span className={`line line1 ${menuOpen ? "active" : ""}`}></span>
-                <span className={`line line2 ${menuOpen ? "active" : ""}`}></span>
-                <span className={`line line3 ${menuOpen ? "active" : ""}`}></span>
+                <span
+                  className={`line line1 ${menuOpen ? "active" : ""}`}
+                ></span>
+                <span
+                  className={`line line2 ${menuOpen ? "active" : ""}`}
+                ></span>
+                <span
+                  className={`line line3 ${menuOpen ? "active" : ""}`}
+                ></span>
               </div>
             </button>
           </div>

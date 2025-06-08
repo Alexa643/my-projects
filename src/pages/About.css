@@ -1,253 +1,516 @@
-/* ------------------- ABOUT PAGE SPECIFIC STYLES ------------------- */
+/* Stiluri generale */
 .page-content {
-  padding: 2rem 1rem;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
+}
+
+.container {
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* About Header */
+.about-header {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+
+.about-header h1 {
+  font-size: 2.8rem;
+  color: #2a9d8f;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.header-divider {
+  width: 100px;
+  height: 4px;
+  background: #2a9d8f;
   margin: 0 auto;
 }
 
-.about-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  text-align: center;
-  color: var(--primary-color); /* Culoarea primară e adesea ok și pe dark */
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 1rem;
-  transition: var(--transition); /* Adaugă tranziție */
-}
-
-.page-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--primary-color);
-  border-radius: 2px;
+/* About Section */
+.about-section {
+  padding: 60px 0;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  gap: 40px;
+  align-items: start;
 }
 
-.about-image {
-  border-radius: 16px;
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  height: 100%;
+}
+
+.about-image-wrapper {
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-}
-
-.about-image:hover {
-  transform: translateY(-5px);
+  background: #fff;
+  height: 300px;
+  position: relative;
 }
 
 .about-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border-radius: 16px;
   transition: transform 0.5s ease;
 }
 
-.about-img:hover {
+.about-image-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.about-image-wrapper:hover .about-img {
   transform: scale(1.03);
 }
 
-.about-text {
+.about-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
-.paragraph {
+.about-text {
   font-size: 1.1rem;
   line-height: 1.8;
-
-  transition: var(--transition); /* Adaugă tranziție */
 }
 
-.about-features {
+/* Stats Container */
+.stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.feature-card {
-  background: rgba(79, 70, 229, 0.05);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
+.stat-card {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
   transition: all 0.3s ease;
-  border: 1px solid rgba(79, 70, 229, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.feature-card:hover {
+.stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.1);
-  background: rgba(79, 70, 229, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: #2a9d8f;
+  color: white;
 }
 
-.feature-card h3 {
-  color: var(
-    --primary-color
-  ); /* Culoarea primară ar trebui să fie ok și pe dark */
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-  transition: var(--transition); /* Adaugă tranziție */
+.stat-card:hover h3,
+.stat-card:hover p {
+  color: white;
 }
 
-.feature-card p {
-  color: var(--text-color-light); /* Utilizează variabila pentru text general */
-  font-size: 0.95rem;
-  opacity: 0.9;
-  transition: var(--transition); /* Adaugă tranziție */
-}
-
-.reviews-section {
-  margin-top: 4rem;
-}
-
-.reviews-section h2 {
-  text-align: center;
+.stat-icon {
   font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(
-    --primary-color
-  ); /* Culoarea primară ar trebui să fie ok și pe dark */
-  transition: var(--transition); /* Adaugă tranziție */
+  color: #2a9d8f;
 }
 
-.review-cards {
+.stat-card:hover .stat-icon {
+  color: white;
+}
+
+.stat-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.stat-info p {
+  font-size: 0.9rem;
+
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 80px 0;
+}
+
+.mission-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
 }
 
-.review-card {
-  border-radius: 12px;
-  padding: 2rem;
+.mission-content h2 {
+  font-size: 2.2rem;
+  color: #2a9d8f;
+  margin-bottom: 20px;
+}
+
+.mission-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.mission-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.mission-list li {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mission-list li span {
+  color: #2a9d8f;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.mission-image {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.mission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mission-image:hover img {
+  transform: scale(1.03);
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #2a9d8f;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #2a9d8f;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 250px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 80px 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  border-radius: 10px;
+  padding: 30px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-rating {
+  color: #f39c12;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.testimonial-author {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.testimonial-author h4 {
+  margin-bottom: 5px;
+  color: #2a9d8f;
+}
+
+.testimonial-author p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* Contact Info Section */
+.about-contact-info {
+  padding: 80px 0;
+}
+
+.about-contact-wrapper {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-contact-wrapper h2 {
+  font-size: 2.2rem;
+  color: #2a9d8f;
+  margin-bottom: 15px;
+}
+
+.about-contact-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.about-contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.about-contact-method {
+  border-radius: 10px;
+  padding: 30px 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
 }
 
-/* CULOARE PENTRU ELEMENTUL ::before (de ex., ghilimele) */
-.review-card::before {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 4rem;
-  font-family: serif;
-  line-height: 1;
-  color: rgba(
-    0,
-    0,
-    0,
-    0.1
-  ); /* Culoare deschisă pentru ghilimele în light mode */
-  transition: var(--transition); /* Adaugă tranziție */
-}
-.dark .review-card::before {
-  color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Culoare închisă pentru ghilimele în dark mode */
-}
-
-.review-card:hover {
+.about-contact-method:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.review-card p {
-  font-style: italic;
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
-  transition: var(--transition); /* Adaugă tranziție */
+.about-contact-icon {
+  width: 60px;
+  height: 60px;
+  background: #2a9d8f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 1.5rem;
 }
 
-.review-card strong {
-  color: var(
-    --primary-color
-  ); /* Culoarea primară ar trebui să fie ok și pe dark */
-  font-weight: 600;
-  transition: var(--transition); /* Adaugă tranziție */
+.about-contact-info-text h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-.map-container {
-  margin-top: 4rem;
+.about-contact-info-text a,
+.about-contact-info-text p {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 0.8;
 }
 
-.map-container h2 {
+.about-contact-info-text a:hover {
+  color: #2a9d8f;
+}
+
+.about-contact-cta {
+  display: inline-block;
+  background: #2a9d8f;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.about-contact-cta:hover {
+  background: #238f82;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(42, 157, 143, 0.4);
+}
+
+/* Location Map Section */
+.about-company-location {
+  padding: 60px 0;
+}
+
+.about-company-location h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(
-    --primary-color
-  ); /* Culoarea primară ar trebui să fie ok și pe dark */
-  transition: var(--transition); /* Adaugă tranziție */
+  font-size: 2.2rem;
+  color: #2a9d8f;
+  margin-bottom: 40px;
 }
 
-/* Dark mode adjustments for About page */
-/* .dark .page-title,
-.dark .reviews-section h2,
-.dark .map-container h2 {
-    color: var(--heading-color-dark); /* Aplică culoarea dark mode pentru titluri */
-
-/* .dark .paragraph,
-.dark .feature-card p,
-.dark .review-card p,
-.dark .review-card strong {
-  color: var(
-    --text-color-dark
-  ); /* Aplică culoarea dark mode pentru text general */
-
-.dark .about-img {
-  filter: brightness(0.9);
+.about-map-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.dark .feature-card {
-  background: rgba(79, 70, 229, 0.1);
-  border-color: rgba(79, 70, 229, 0.2);
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .about-grid,
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mission-image {
+    order: -1;
+    height: 400px;
+  }
+
+  .testimonials-grid,
+  .about-contact-methods {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.dark .feature-card:hover {
-  background: rgba(79, 70, 229, 0.15);
-}
-
-.dark .review-card {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.05);
-}
-
-.dark .review-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive adjustments for About page */
 @media (max-width: 768px) {
-  .about-grid {
+  .about-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .stats-container {
     grid-template-columns: 1fr;
   }
-  .about-features {
+
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
-  .review-cards {
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .about-contact-methods {
     grid-template-columns: 1fr;
+  }
+
+  .about-image-wrapper {
+    height: 200px;
+  }
+
+  .mission-image {
+    height: 300px;
   }
 }
