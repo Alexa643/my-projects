@@ -1,9 +1,9 @@
 /* --- Global CSS Variables --- */
 :root {
   --primary-color: #2a9d8f;
-  --primary-color-dark: #2a9d8f; /* Poate fi o nuanță mai închisă dacă e necesar */
-  --text-general-light: #111827; /* Culoare principală text light mode */
-  --text-general-dark: #e5e7eb; /* Culoare principală text dark mode */
+  --primary-color-dark: #2a9d8f; 
+  --text-general-light: #111827; 
+  --text-general-dark: #e5e7eb; 
   --bg-light: #f9f9f9;
   --bg-dark: #121212;
   --card-bg-light: #ffffff;
@@ -11,7 +11,7 @@
   --nav-bg-light: #ffffff;
   --nav-bg-dark: #000000;
   --nav-text-light: #374151;
-  --nav-text-dark: #e5e7eb; /* Culoare text nav dark mode */
+  --nav-text-dark: #e5e7eb; 
   --nav-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
   --nav-shadow-dark: 0 4px 15px rgba(255, 255, 255, 0.08);
   --nav-border-light: #e5e7eb;
@@ -30,10 +30,10 @@
   --moon-dark: #ffffff;
 
   /* Variabile text suplimentare pentru claritate și uniformitate */
-  --text-color-light: #333333; /* Un gri mai închis pentru text general */
-  --text-color-dark: #cccccc; /* Un gri deschis pentru text general în dark mode */
-  --heading-color-light: #111827; /* Culoare pentru titluri în light mode */
-  --heading-color-dark: #f0f0f0; /* Culoare pentru titluri în dark mode */
+  --text-color-light: #333333; 
+  --text-color-dark: #cccccc; 
+  --heading-color-light: #111827; 
+  --heading-color-dark: #f0f0f0; 
 }
 
 /* --- Base Styles --- */
