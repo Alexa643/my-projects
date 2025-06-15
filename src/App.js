@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ReviewsPage from "./pages/Reviews";
 import ServicesSection from "./components/Services/ServicesSection";
+import Blogs from "./components/Blogs/Blog";
 
 import "./styles.css";
 import Header from "./components/Header";
@@ -65,7 +66,8 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/forgot-password" element={<ForgotPassPage />} />
             <Route path="/servicii" element={<ServicesSection />} />
-         
+            <Route path="/blog" element={<Blogs />} />
+            {/* Adaugă alte rute aici */}
           </Routes>
         </main>
         <Footer />

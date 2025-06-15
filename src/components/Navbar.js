@@ -38,6 +38,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     { path: "/despre", label: "Despre" },
     { path: "/recenzii", label: "Recenzii" },
     { path: "/contact", label: "Contact" },
+    { path: "/blog", label: "Blog" },
   ];
 
   return (
