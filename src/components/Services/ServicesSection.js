@@ -1,4 +1,3 @@
-"use client";
 import { useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -11,11 +10,10 @@ import {
   FaLeaf,
 } from "react-icons/fa";
 
-// Import components from their new, separate files
 import ServiceCard from "./ServiceCard";
-import EquipmentShowcase from "./EquipmentShowcase"; // New component
-import ServiceDetails from "./ServiceDetails"; // New component
-import "./ServicesSection.css"; // Keep main section styles
+import EquipmentShowcase from "./EquipmentShowcase";
+import ServiceDetails from "./ServiceDetails";
+import "./ServicesSection.css";
 
 const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -222,11 +220,13 @@ const ServicesSection = () => {
   );
 
   return (
-    <section className="services-section">
-      <div className="services-container">
-        <div className="intro-section">
-          <h2 className="intro-title">Servicii de Curățenie Profesionale</h2>
-          <p className="intro-text">
+    <section className="services-main">
+      <div className="services-wrapper">
+        <div className="services-intro">
+          <h2 className="services-intro-title">
+            Servicii de Curățenie Profesionale
+          </h2>
+          <p className="services-intro-text">
             Firma Curățenie MORHAN din Sibiu oferă servicii complete de
             curățenie atât pentru persoane fizice, cât și pentru companii. Cu o
             experiență de peste 15 ani și un portofoliu de peste 300 de clienți
@@ -235,17 +235,16 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* Render the extracted EquipmentShowcase component */}
         <EquipmentShowcase />
 
-        <div className="services-section-header">
-          <h2 className="section-title">Serviciile Noastre</h2>
-          <p className="section-subtitle">
+        <div className="services-header">
+          <h2 className="services-title">Serviciile Noastre</h2>
+          <p className="services-subtitle">
             Selectați un serviciu pentru a afla mai multe detalii și informații
             complete
           </p>
         </div>
-        <div className="services-grid">
+        <div className="services-grid-container">
           {services.map((service) => (
             <ServiceCard
               key={service.id}
@@ -257,7 +256,6 @@ const ServicesSection = () => {
 
         {selectedService && selectedServiceData && (
           <div ref={detailsRef}>
-            {/* Render the extracted ServiceDetails component */}
             <ServiceDetails
               service={selectedServiceData}
               onClose={handleCloseDetails}
@@ -265,18 +263,17 @@ const ServicesSection = () => {
           </div>
         )}
 
-        <div className="services-cta">
-          <div className="cta-content">
-            <h3 className="cta-title">Contactează-ne</h3>
-            <p className="cta-subtitle">Apelează la Profesioniști!</p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="cta-button primary">
+        <div className="services-contact-cta">
+          <div className="cta-content-wrapper">
+            <h3 className="cta-main-title">Contactează-ne</h3>
+            <p className="cta-secondary-title">Apelează la Profesioniști!</p>
+            <div className="cta-buttons-wrapper">
+              <Link to="/contact" className="cta-primary-button">
                 Solicita Ofertă
               </Link>
             </div>
           </div>
-          <div className="cta-image-placeholder">
-            {/* Image now fits perfectly */}
+          <div className="cta-image-container">
             <img
               src="/assets/Images/imaginea-companiei-3.jpg"
               alt="Imagine Companie"
