@@ -3,13 +3,13 @@ import "./ServiceDetails.css";
 
 const ServiceDetails = ({ service, onClose }) => {
   return (
-    <div className="service-details">
-      <div className="details-container">
-        <div className="details-header">
-          <div className="header-content">
-            <h2 className="details-title">{service.detailedInfo.title}</h2>
+    <div className="service-details-container">
+      <div className="details-content-wrapper">
+        <div className="details-header-section">
+          <div className="header-content-wrapper">
+            <h2 className="details-main-title">{service.detailedInfo.title}</h2>
             <button
-              className="close-button"
+              className="details-close-btn"
               onClick={onClose}
               aria-label="Închide detaliile"
             >
@@ -18,56 +18,56 @@ const ServiceDetails = ({ service, onClose }) => {
           </div>
         </div>
 
-        <div className="details-content">
-          <div className="details-grid">
-            <div className="details-info">
-              <div className="service-description">
+        <div className="details-body-section">
+          <div className="details-layout-grid">
+            <div className="details-info-section">
+              <div className="service-description-wrapper">
                 <p>{service.detailedInfo.description}</p>
               </div>
 
-              <div className="features-section">
-                <h3 className="section-subtitle">
-                  <span className="section-icon">
+              <div className="features-section-wrapper">
+                <h3 className="section-title">
+                  <span className="section-title-icon">
                     <MdCheck />
                   </span>
                   Caracteristici
                 </h3>
-                <ul className="features-list">
+                <ul className="features-list-grid">
                   {service.detailedInfo.features.map((feature, index) => (
-                    <li key={index} className="feature-item">
-                      <span className="feature-bullet">•</span>
+                    <li key={index} className="feature-list-item">
+                      <span className="feature-bullet-point">•</span>
                       {feature}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="process-section">
-                <h3 className="section-subtitle">
-                  <span className="section-icon">
+              <div className="process-section-wrapper">
+                <h3 className="section-title">
+                  <span className="section-title-icon">
                     <MdRefresh />
                   </span>
                   Procesul de Lucru
                 </h3>
-                <div className="process-steps-details">
+                <div className="process-steps-container">
                   {service.detailedInfo.process.map((step, index) => (
-                    <div key={index} className="process-step-detail">
-                      <div className="step-number-detail">{index + 1}</div>
-                      <div className="step-text-detail">{step}</div>
+                    <div key={index} className="process-step-item">
+                      <div className="step-number-indicator">{index + 1}</div>
+                      <div className="step-text-content">{step}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="details-image">
-              <div className="image-container">
+            <div className="details-visual-section">
+              <div className="service-image-container">
                 {service.imageId ? (
                   <div className="service-image-wrapper">
                     <img
                       src={service.imageId}
                       alt={service.title}
-                      className="service-image"
+                      className="service-main-image"
                     />
                   </div>
                 ) : (
@@ -77,19 +77,21 @@ const ServiceDetails = ({ service, onClose }) => {
                 )}
               </div>
 
-              <div className="contact-box">
-                <h3 className="contact-title">Interesat de acest serviciu?</h3>
-                <p className="contact-text">
+              <div className="contact-info-box">
+                <h3 className="contact-section-title">
+                  Interesat de acest serviciu?
+                </h3>
+                <p className="contact-description-text">
                   Contactează-ne pentru o ofertă personalizată
                 </p>
-                <div className="phone-contact">
-                  <MdPhone className="phone-icon" />
-                  <a href="tel:+40745265769" className="phone-link">
+                <div className="phone-contact-wrapper">
+                  <MdPhone className="phone-contact-icon" />
+                  <a href="tel:+40745265769" className="phone-contact-link">
                     +4 0745 26 57 69
                   </a>
                 </div>
-                <div className="contact-buttons">
-                  <a href="/contact" className="contact-btn primary">
+                <div className="contact-actions-wrapper">
+                  <a href="/contact" className="contact-primary-btn">
                     Solicită Ofertă
                   </a>
                 </div>

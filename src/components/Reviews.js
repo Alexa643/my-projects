@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import {
   FaStar,
@@ -136,11 +134,11 @@ const Reviews = () => {
   };
 
   return (
-    <div className="testimonials-reviews-container">
-      <div className="main-content">
-        <div className="content-grid">
+    <div className="reviews-page">
+      <div className="reviews-container">
+        <div className="reviews-grid">
           {/* Left Side - Testimonials */}
-          <div className="testimonials-section">
+          <div className="testimonials-wrapper">
             <div className="section-header">
               <h2 className="section-title">Recenzii ale clienților</h2>
               <p className="section-description">
@@ -156,16 +154,16 @@ const Reviews = () => {
 
             <div className="testimonials-list">
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="testimonial-card">
-                  <div className="testimonial-image-wrapper">
+                <div key={testimonial.id} className="testimonial-item">
+                  <div className="testimonial-image-container">
                     <img
                       src={testimonial.image || "/placeholder.svg"}
                       alt={`${testimonial.company} - ${testimonial.name}`}
-                      className="testimonial-image"
+                      className="testimonial-img"
                     />
-                    <div className="testimonial-author-title">
+                    <div className="testimonial-author-info">
                       <p className="author-name">{testimonial.name}</p>
-                      <p className="author-details">
+                      <p className="author-position">
                         {testimonial.title}
                         {testimonial.company && ` • ${testimonial.company}`}
                         {testimonial.location && ` • ${testimonial.location}`}
@@ -173,19 +171,19 @@ const Reviews = () => {
                     </div>
                   </div>
 
-                  <div className="testimonial-content">
-                    <div className="testimonial-text-container">
-                      <p className="testimonial-text">
+                  <div className="testimonial-content-wrapper">
+                    <div className="testimonial-text-wrapper">
+                      <p className="testimonial-excerpt">
                         {testimonial.shortText}
                       </p>
                     </div>
 
-                    <div className="testimonial-meta">
-                      <div className="rating">
+                    <div className="testimonial-footer">
+                      <div className="stars-rating">
                         {renderStars(testimonial.rating)}
                       </div>
                       <button
-                        className="read-more-btn"
+                        className="read-more-button"
                         onClick={() => openModal(testimonial)}
                       >
                         Citește mai mult
@@ -198,7 +196,7 @@ const Reviews = () => {
           </div>
 
           {/* Right Side - Reviews */}
-          <div className="reviews-section">
+          <div className="user-reviews-wrapper">
             <div className="section-header">
               <h2 className="section-title">Lasă o recenzie</h2>
               <p className="section-description">
@@ -208,8 +206,8 @@ const Reviews = () => {
             </div>
 
             {/* Review Form */}
-            <div className="review-form-container">
-              <div className="form-card">
+            <div className="review-form-wrapper">
+              <div className="form-container">
                 <h3 className="form-title">Scrie o recenzie</h3>
                 <form onSubmit={handleSubmit} className="review-form">
                   <div className="form-group">
@@ -234,26 +232,26 @@ const Reviews = () => {
                   </div>
                   <div className="form-group">
                     <label className="form-label">Rating:</label>
-                    <div className="rating-input">
+                    <div className="rating-stars">
                       {renderStars(rating, true, setRating)}
                     </div>
                   </div>
-                  <button type="submit" className="submit-btn">
-                    <FaPaperPlane className="icon" /> Trimite Recenzia
+                  <button type="submit" className="submit-button">
+                    <FaPaperPlane className="button-icon" /> Trimite Recenzia
                   </button>
                 </form>
               </div>
             </div>
 
             {/* Reviews List */}
-            <div className="reviews-list">
+            <div className="user-reviews-list">
               <h3 className="reviews-list-title">
                 Recenziile clienților noștri
               </h3>
               {reviews.map((review) => (
-                <div key={review.id} className="review-card">
+                <div key={review.id} className="review-item">
                   <div className="review-header">
-                    <div className="reviewer-info">
+                    <div className="reviewer-details">
                       <div className="reviewer-avatar">
                         <span>{review.author.charAt(0).toUpperCase()}</span>
                       </div>
@@ -263,7 +261,7 @@ const Reviews = () => {
                       {renderStars(review.rating)}
                     </div>
                   </div>
-                  <div className="review-text-container">
+                  <div className="review-content">
                     <p className="review-text">{review.text}</p>
                   </div>
                 </div>
@@ -275,34 +273,37 @@ const Reviews = () => {
 
       {/* Modal */}
       {selectedTestimonial && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>
+        <div className="testimonial-modal-overlay" onClick={closeModal}>
+          <div
+            className="testimonial-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modal-close-button" onClick={closeModal}>
               <FaTimes />
             </button>
             <div className="modal-body">
-              <div className="modal-testimonial-header">
-                <div className="modal-image-frame">
+              <div className="modal-header">
+                <div className="modal-image-container">
                   <img
                     src={selectedTestimonial.image || "/placeholder.svg"}
                     alt={selectedTestimonial.name}
-                    className="modal-client-image"
+                    className="modal-image"
                   />
                 </div>
-                <div className="modal-client-details">
+                <div className="modal-client-info">
                   <h3 className="modal-client-name">
                     {selectedTestimonial.name}
                   </h3>
-                  <p className="modal-client-title">
-                    <FaUser className="icon" /> {selectedTestimonial.title}
+                  <p className="modal-client-position">
+                    <FaUser className="info-icon" /> {selectedTestimonial.title}
                   </p>
                   <p className="modal-client-company">
-                    <FaBuilding className="icon" />{" "}
+                    <FaBuilding className="info-icon" />{" "}
                     {selectedTestimonial.company}
                   </p>
                   {selectedTestimonial.location && (
                     <p className="modal-client-location">
-                      <FaMapMarkerAlt className="icon" />{" "}
+                      <FaMapMarkerAlt className="info-icon" />{" "}
                       {selectedTestimonial.location}
                     </p>
                   )}
@@ -312,8 +313,8 @@ const Reviews = () => {
                 </div>
               </div>
 
-              <div className="modal-testimonial-container">
-                <p className="modal-testimonial-text">
+              <div className="modal-content">
+                <p className="modal-testimonial">
                   {selectedTestimonial.fullText}
                 </p>
               </div>
